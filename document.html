@@ -1,0 +1,625 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<!--<link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.2.1.min.js"></script>-->
+	<link rel="stylesheet" href="less/style.css">
+	<link rel="stylesheet" href="css/prettify.css" />
+	
+	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
+	to style.css, and replace the 2 lines above by this one:
+
+	<link rel="stylesheet/less" href="less/style.css">
+	 -->
+
+	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">MapionMaps.framework</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="document.html">ドキュメント</a></li>
+              <li><a href="apikey.html">APIキー</a></li>
+              <li><a href="download.html">ダウンロード</a></li>
+              <li><a href="sample.html">サンプル</a></li>
+              <li><a href="kiyaku.html">利用規約</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+	<div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <!--Sidebar content-->
+          <div class="well">
+            <h4><a href="document.html">ドキュメント</a></h4>
+            <ul>
+              <li><a href="document.html#prepare">準備</a></li>
+              <li><a href="document.html#map">地図を表示する</a></li>
+              <li><a href="document.html#specifiedmap">緯度経度縮尺を指定して地図を表示する</a></li>
+              <li><a href="document.html#pin">ピンを立てる</a></li>
+              <li><a href="document.html#removepin">ピンを削除する</a></li>
+              <li><a href="document.html#onload">リスナー</a></li>
+              <li><a href="document.html#pointtocoordinate">タッチ座標を緯度経度に変換する</a></li>
+              <li><a href="document.html#coordinatetopoint">緯度経度をタッチ座標に変換する</a></li>
+              <li><a href="document.html#line">ラインを描画する</a></li>
+              <li><a href="document.html#orgmap">独自地図を表示する</a></li>
+              <li><a href="document.html#original">独自画像を表示する</a></li>
+            </ul>
+            <h4><a href="apikey.html">APIキー</a></h4>
+            <h4><a href="download.html">ダウンロード</a></h4>
+            <h4><a href="sample.html">サンプル</a></h4>
+            <h4><a href="kiyaku.html">利用規約</a></h4>
+            <br />
+            <div class="social"> <!-- Twitter -->
+              <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-url="http://mapion.github.com/MapionMapsDemo" data-text="MapionMaps.framework" data-via="honjo2">Tweet</a>
+            </div> <!-- /Twitter -->
+            <div class="social"> <!-- Facebook -->
+              <div id="fb-root"></div>
+              <div class="fb-like" data-href="http://mapion.github.com/MapionMapsDemo" data-layout="button_count" data-send="false" data-width="120" data-show-faces="false"></div>
+            </div> <!-- /Facebook -->
+            <div class="social"> <!-- Google plusone -->
+              <div class="g-plusone" data-size="medium" data-href="http://mapion.github.com/MapionMapsDemo"></div>
+            </div> <!-- /Google plusone -->
+            <div class="social"> <!-- Hatena -->
+              <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+	data-hatena-bookmark-layout="standard"
+	data-hatena-bookmark-url="http://mapion.github.com/MapionMapsDemo">
+	            <img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none">
+              </a>
+            </div> <!-- /Hatena -->
+          </div>
+        </div>
+        <div class="span9">
+          <!--Body content-->
+          <div class="well">
+            <h3><a name="prepare"></a>準備</h3>
+            <ol>
+              <li><a href="apikey.html">APIキー</a>からAPIキーを取得する</li>
+              <li><a href="download.html">ダウンロード</a>からframeworkをダウンロードし解凍する</li>
+              <li>解凍したディレクトリ内のpin@2x.pngをプロジェクトにコピーする</li>
+              <li>解凍したディレクトリをプロジェクトに追加する</li>
+              <li>QuartzCore.frameworkをプロジェクトに追加する</li>
+            </ol>
+            <img src="img/link_binary_with_libraries.png" width="395" height="261">
+            
+            <hr />
+            
+            <h3><a name="map"></a>地図を表示する</h3>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+...
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  MMMapView *mapView = [[MMMapView alloc] initWithFrame:[[self view] bounds] key:@"APIキー"];
+  // 地図を指定する場合
+  // id &lt;MMMap&gt; openStreetMap = [[OpenStreetMap alloc] init];
+  // MMMapView *mapView = [[MMMapView alloc] initWithFrame:[[self view] bounds] key:@"APIキー" map:openStreetMap];
+  
+  [self.view addSubview:mapView];
+}
+</pre>
+            <img src="img/map.png" width="320" height="480">
+
+            <hr />
+            
+            <h3><a name="specifiedmap"></a>緯度経度縮尺を指定して地図を表示する</h3>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+...
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  MMMapView *mapView = [[MMMapView alloc] initWithFrame:[[self view] bounds] key:@"APIキー"];
+  [self.view addSubview:mapView];
+  
+  [mapView setZoom:12.3 animated:NO]; // animated:YESでアニメーションする
+  
+  CLLocationCoordinate2D coordinate;
+  coordinate.latitude = 35.3;
+  coordinate.longitude = 139.3;
+  [mapView setCenterCoordinate:coordinate animated:NO]; // animated:YESでアニメーションする
+}
+</pre>
+          <img src="img/specifiedmap.png" width="320" height="480">
+          
+          <hr />
+          
+          <h3><a name="pin"></a>ピンを立てる</h3>
+<pre class="prettyprint">
+MMAnnotationView *annotationView = [[MMAnnotationView alloc] initWithCoordinate:mapView.centerCoordinate mapView:mapView];
+annotationView.title = @"タイトル"; // titleを設定すればタップで吹き出しが出る
+// annotationView.image = [UIImage imageNamed:@"myicon.png"]; // 独自アイコンを使いたい場合
+// annotationView.centerOffset = CGPointMake(-21, -28); // アイコンの中心を設定する
+[mapView addAnnotation:annotationView animated:NO]; // animated:YESでアニメーションする
+</pre>
+					<h4>吹き出し内のボタンタップ時の挙動を指定する場合はMMMapViewDelegateを作ってMMMapViewのdelegateプロパティに設定する</h4>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+
+@interface MapViewDelegate : NSObject &lt;MMMapViewDelegate&gt;
+
+@end
+
+@implementation MapViewDelegate
+
+- (void)tapOnPopup:(MMMapView *)mapView annotationView:(MMAnnotationView *)annotationView control:(UIControl *)control {
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:annotationView.title message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"閉じる", nil];
+  [alert show];
+  [alert release];
+}
+
+@end
+</pre>					
+            <img src="img/pinwith.png" width="320" height="480">
+            
+            <hr />
+            
+            <h3><a name="removepin"></a>ピンを削除する</h3>
+            <h4>ピンを指定して削除する</h4>
+<pre class="prettyprint">
+  [mapView removeAnnotation:annotationView];
+</pre>
+            <h4>すべてのピンを削除する</h4>
+<pre class="prettyprint">
+  [mapView removeAnnotations:mapView.annotations];
+</pre>
+         
+           <hr />
+                    
+           <h3><a name="onload"></a>リスナー</h3> 
+           <h4>MMMapViewDelegateを実装したクラスを作ってMMMapViewのdelegateプロパティに設定する</h4>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+
+@interface MapViewDelegate : NSObject &lt;MMMapViewDelegate&gt;
+
+@end
+
+@implementation MapViewDelegate
+
+- (void)doubleTap:(MMMapView *)mapView point:(CGPoint)point {
+  // ダブルタップ時
+}
+
+- (void)singleTap:(MMMapView *)mapView point:(CGPoint)point {
+  // シングルタップ時
+}
+
+- (void)singleTapTwoFingers:(MMMapView *)mapView point:(CGPoint)point {
+  // 2本指タップ時
+}
+
+- (void)longSingleTap:(MMMapView *)mapView point:(CGPoint)point {
+  // 長押し時
+}
+
+- (void)beforeMapMove:(MMMapView *)mapView {
+  // 地図をスクロールする前
+}
+
+- (void)afterMapMove:(MMMapView *)mapView {
+  // 地図をスクロールした後
+}
+
+- (void)beforeMapZoom:(MMMapView *)mapView {
+  // ズームチェンジする前
+}
+
+- (void)afterMapZoom:(MMMapView *)mapView {
+  // ズームチェンジした後
+}
+
+- (void)tapOnPopup:(MMMapView *)mapView annotationView:(MMAnnotationView *)annotationView control:(UIControl *)control {
+  // 吹き出し内のボタンタップ時
+}
+
+@end
+</pre>
+<pre class="prettyprint">
+mapView.delegate = [[MapViewDelegate alloc] init];
+</pre>
+            <hr />
+            
+            <h3><a name="pointtocoordinate"></a>タッチ座標を緯度経度に変換する</h3>
+<pre class="prettyprint">
+CGPoint point = [touch locationInView:mapView];
+CLLocationCoordinate2D coordinate = [mapView pixelToCoordinate:point];
+</pre>
+
+            <hr />
+            
+            <h3><a name="coordinatetopoint"></a>緯度経度をタッチ座標に変換する</h3>
+<pre class="prettyprint">
+CLLocationCoordinate2D coordinate;
+coordinate.latitude = 35.3;
+coordinate.longitude = 139.3;
+CGPoint point = [mapView coordinateToPixel:coordinate];
+</pre>
+
+						<hr />
+						
+						<h3><a name="line"></a>ラインを描画する</h3>
+<pre class="prettyprint">
+CLLocationCoordinate2D coordinate1;
+coordinate1.latitude = 35.686188;
+coordinate1.longitude = 139.73733;
+  
+CLLocationCoordinate2D coordinate2;
+coordinate2.latitude = 35.645105;
+coordinate2.longitude = 139.711303;
+  
+CLLocationCoordinate2D coordinate3;
+coordinate3.latitude = 35.657794;
+coordinate3.longitude = 139.796078;
+  
+MMPolylineView *polylineView = [mapView newPolyline];
+[polylineView addCoordinate:coordinate1 doDraw:NO]; // doDraw:YESで即描画
+[polylineView addCoordinate:coordinate2 doDraw:NO];
+[polylineView addCoordinate:coordinate3 doDraw:NO];
+// [polylineView addPoint:point doDraw:NO]; // タッチ座標を指定することも可能
+[polylineView calculate]; // doDraw=NOの場合はこれでまとめて描画する
+</pre>      
+						<img src="img/line.png" width="320" height="480">
+						
+						<hr />
+						
+						<h3><a name="orgmap"></a>独自地図を表示する</h3><br />
+						<h4>OpenStreetMapのようなデファクトスタンダードな仕様の地図であればMMAbstractEPSG900913Mapクラスを継承することにより容易に実現できます。独自地図にピンを立てたりラインを引くことも可能です。</h4><br />
+						<h5>OpenStreetMapを表示する場合</h5>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+
+@interface OpenStreetMap : MMAbstractEPSG900913Map
+
+@end
+
+@implementation OpenStreetMap
+
+- (id)init {
+  if (!(self = [super init])) return nil;
+  
+  self.maxZoom = 18;
+  self.minZoom = 0;
+  self.name = @"OpenStreetMap";
+  self.version = @"";
+  self.copyright = @"Map data © OpenStreetMap contributors, CC BY-SA";
+//  self.tileLength = 384; // ズームにおける1タイルあたりの最大サイズ。デフォルトは256。OpenStreetMapのタイルのサイズは256なので384にすると1.5倍まで拡大する。
+  
+  return self;
+}
+
+- (NSURL *)URLForTile:(MMTile)tile {
+  NSString *urlString = [NSString stringWithFormat:@"http://tile.openstreetmap.org/%d/%d/%d.png", tile.zoom, tile.x, tile.y];
+  
+  return [NSURL URLWithString:urlString];
+}
+
+@end
+
+</pre>
+						<h5>使い方</h5>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+...
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  id &lt;MMMap&gt; openStreetMap = [[OpenStreetMap alloc] init];
+  MMMapView *mapView = [[MMMapView alloc] initWithFrame:[[self view] bounds] key:@"APIキー" map:openStreetMap];
+  
+  [self.view addSubview:mapView];
+}
+</pre>
+            <h5><a href="http://portal.cyberjapan.jp/portalsite/version/v4/">国土地理院の地図</a>を表示する場合</h5>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+
+@interface GSIMap : MMAbstractEPSG900913Map
+
+@end
+
+@implementation GSIMap
+
+- (id)init {
+  if (!(self = [super init])) return nil;
+  
+  self.maxZoom = 18;
+  self.minZoom = 5;
+  self.name = @"GSI";
+  self.version = @"";
+  self.copyright = @"国土地理院";
+//  self.tileLength = 384; // ズームにおける1タイルあたりの最大サイズ。デフォルトは256。国土地理院のタイルのサイズは256なので384にすると1.5倍まで拡大する。
+  
+  return self;
+}
+
+- (NSURL *)URLForTile:(MMTile)tile {
+  NSString *did;
+  switch (tile.zoom) {
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+      did = @"JAIS";
+      break;
+    case 9:
+    case 10:
+    case 11:
+      did = @"BAFD1000K";
+      break;
+    case 12:
+    case 13:
+    case 14:
+      did = @"BAFD200K";
+      break;
+    case 15:
+    case 16:
+    case 17:
+      did = @"DJBMM";
+      break;
+    case 18:
+      did = @"FGD";
+      break;
+    default:
+      did = @"";
+      break;
+  }
+  
+  NSString *xstr = [NSString stringWithFormat:@"%07d", tile.x];
+  NSString *ystr = [NSString stringWithFormat:@"%07d", tile.y];
+  NSString *path = [self path:xstr y:ystr];
+  
+  NSString *urlString = [NSString stringWithFormat:@"http://cyberjapandata.gsi.go.jp/sqras/all/%@/latest/%d%@/%@%@.png", did, tile.zoom, path, xstr, ystr];
+  
+  return [NSURL URLWithString:urlString];
+}
+
+#pragma mark - private
+
+- (NSString *)path:(NSString *)x y:(NSString *)y {
+  NSString *dir = @"";
+  NSString *xi;
+  NSString *yi;
+  for (int i = 0; i < 6; i++) {
+    xi = [x substringWithRange:NSMakeRange(i, 1)];
+    yi = [y substringWithRange:NSMakeRange(i, 1)];
+    dir = [dir stringByAppendingFormat:@"/%@%@", xi, yi];
+  }
+  return dir;
+}
+
+@end
+</pre>
+            <h5>使い方</h5>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+#import "GSIMap.h"
+...
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  id &lt;MMMap&gt; gsiMap = [[GSIMap alloc] init];
+  MMMapView *mapView = [[MMMapView alloc] initWithFrame:[[self view] bounds] key:@"APIキー" map:gsiMap];
+  
+  [self.view addSubview:mapView];
+}
+</pre>     
+						<hr />
+						
+						<h3><a name="original"></a>独自画像を表示する</h3><br />
+						<h4>ローカルやWEBにある独自画像を表示することが可能です。独自画像にピンを立てたりラインを引くことも可能です。例として以下の画像（mapiontown.png）をタイル化してframeworkで表示させる場合を示します。</h4><br />
+						<img src="img/mapiontown.png" width="660" height="446"><br /><br />
+						<h5>タイル化手順</h5>
+						<ol>
+							<li>
+							  <a href="http://www.bartlett.ucl.ac.uk/casa/latest/software/gmap-image-cutter">GMap Image Cutter</a>をダウンロード＆インストール	
+							</li>
+							<li>
+								GMap Image Cutterを起動する<br />
+								<img src="img/gic01.png" width="488" height="353">
+							</li>
+							<li>
+							  mapiontown.pngを開く<br />
+							  <img src="img/gic02.png" width="550" height="423">
+							</li>
+							<li>
+								Createを押す<br />
+								<img src="img/gic03.png" width="488" height="352">
+							</li>
+							<li>
+								mapiontown-tilesとmapiontown.htmlが出来上がる（必要なのはmapiontown-tiles内のタイルです）<br />
+								<img src="img/gic04.png" width="542" height="422">
+							</li>
+							<li>
+								Supporting Filesにタイルをコピーする<br />
+								<img src="img/gic05.png" width="129" height="374">
+							</li>
+						</ol>
+						
+						<h5>MapionTownMapクラス作成</h5>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+
+@interface MapionTownMap : NSObject &lt;MMMap&gt;
+
+@property (nonatomic, assign) float minZoom;
+@property (nonatomic, assign) float maxZoom;
+@property (nonatomic, assign) NSUInteger tileLength;
+@property (nonatomic, assign) MMProjectedRect projectedRect;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *version;
+@property (nonatomic, retain) NSString *copyright;
+
+@end
+
+#import "MapionTownMap.h"
+
+@implementation MapionTownMap
+
+@synthesize minZoom = minZoom_;
+@synthesize maxZoom = maxZoom_;
+@synthesize tileLength = tileLength_;
+@synthesize projectedRect = projectedRect_;
+@synthesize name = name_;
+@synthesize version = version_;
+@synthesize copyright = copyright_;
+
+- (id)init {
+  if (!(self = [super init])) return nil;
+  
+  float screenScale = 1.0;
+  if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+    screenScale = [[[UIScreen mainScreen] valueForKey:@"scale"] floatValue];
+  }
+  float maxLength = 256 / screenScale;
+  
+  self.projectedRect = MMProjectedRectMake(-maxLength, -maxLength, maxLength * 2, maxLength * 2);
+  
+  self.tileLength = 256;
+  self.maxZoom = 2;
+  self.minZoom = 0;
+  
+  self.name = @"MapionTown";
+  self.version = @"";
+  self.copyright = @"";
+  
+  return self;
+}
+
+#pragma mark - MMMap
+
+- (UIImage *)imageForTile:(MMTile)tile {
+  NSString *fileName = [self tileToFileName:tile];
+  return [UIImage imageNamed:fileName];
+}
+
+- (CLLocationCoordinate2D)projectedPointToCoordinate:(MMProjectedPoint)point {
+  CLLocationCoordinate2D coordinate;
+  coordinate.latitude = point.y;
+  coordinate.longitude = point.x;
+  return coordinate;
+}
+
+- (MMProjectedPoint)coordinateToProjectedPoint:(CLLocationCoordinate2D)coordinate {
+  MMProjectedPoint point;
+  point.x = coordinate.longitude;
+  point.y = coordinate.latitude;
+  return point;
+}
+
+#pragma mark - Private
+
+- (NSString *)tileToFileName:(MMTile)tile {
+  double p = pow(2.0, tile.zoom);
+  int x = tile.x;
+  int y = tile.y;
+  
+  NSMutableString *tileName = [NSMutableString string];
+  [tileName appendString:@"t"];
+  for (int i = 0; i < tile.zoom; i++) {
+    p = p / 2;
+    if (y < p) {
+      if (x < p) {
+        [tileName appendString:@"q"];
+      } else {
+        [tileName appendString:@"r"];
+        x -= p;
+      }
+    } else {
+      if (x < p) {
+        [tileName appendString:@"t"];
+        y -= p;
+      } else {
+        [tileName appendString:@"s"];
+        x -= p;
+        y -= p;
+      }
+    }
+  }
+  [tileName appendString:@".jpg"];
+  return tileName;
+}
+
+@end
+
+</pre>					
+						<h5>使い方</h5>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+#import "MapionTownMap.h"
+...
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  id &lt;MMMap&gt; mapionTownMap = [[MapionTownMap alloc] init];
+  MMMapView *mapView = [[MMMapView alloc] initWithFrame:[[self view] bounds] key:@"APIキー" map:mapionTownMap];
+  
+  [self.view addSubview:mapView];
+}
+</pre>
+
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+
+      <footer>
+        <p>&copy; <a href="http://www.mapion.co.jp/">Mapion</a> Co.,Ltd. All rights reserved.</p>
+      </footer>
+    </div> <!-- /container-fluid -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+<script src="js/libs/bootstrap/transition.js"></script>
+<script src="js/libs/bootstrap/collapse.js"></script>
+
+<script src="js/script.js"></script>
+
+<script src="js/prettify.js"></script>
+<script>prettyPrint();</script>
+<script>
+(function(w,d){
+    w._gaq=[["_setAccount","UA-29986121-2"],["_trackPageview"]];
+    w.___gcfg={lang:"ja"};
+    var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+    a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
+    a(("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js");
+    a("https://apis.google.com/js/plusone.js");
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+    a("//platform.twitter.com/widgets.js");
+    a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
+    f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
+
+</body>
+</html>

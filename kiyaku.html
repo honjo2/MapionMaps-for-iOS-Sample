@@ -1,0 +1,218 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<!--<link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.2.1.min.js"></script>-->
+	<link rel="stylesheet" href="less/style.css">
+	
+	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
+	to style.css, and replace the 2 lines above by this one:
+
+	<link rel="stylesheet/less" href="less/style.css">
+	 -->
+
+	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">MapionMaps.framework</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="document.html">ドキュメント</a></li>
+              <li><a href="apikey.html">APIキー</a></li>
+              <li><a href="download.html">ダウンロード</a></li>
+              <li><a href="sample.html">サンプル</a></li>
+              <li class="active"><a href="kiyaku.html">利用規約</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+	<div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <!--Sidebar content-->
+          <div class="well">
+            <h4><a href="document.html">ドキュメント</a></h4>
+            <ul>
+              <li><a href="document.html#prepare">準備</a></li>
+              <li><a href="document.html#map">地図を表示する</a></li>
+              <li><a href="document.html#specifiedmap">緯度経度縮尺を指定して地図を表示する</a></li>
+              <li><a href="document.html#pin">ピンを立てる</a></li>
+              <li><a href="document.html#removepin">ピンを削除する</a></li>
+              <li><a href="document.html#onload">リスナー</a></li>
+              <li><a href="document.html#pointtocoordinate">タッチ座標を緯度経度に変換する</a></li>
+              <li><a href="document.html#coordinatetopoint">緯度経度をタッチ座標に変換する</a></li>
+              <li><a href="document.html#line">ラインを描画する</a></li>
+              <li><a href="document.html#orgmap">独自地図を表示する</a></li>
+              <li><a href="document.html#original">独自画像を表示する</a></li>
+            </ul>
+            <h4><a href="apikey.html">APIキー</a></h4>
+            <h4><a href="download.html">ダウンロード</a></h4>
+            <h4><a href="sample.html">サンプル</a></h4>
+            <h4><a href="kiyaku.html">利用規約</a></h4>
+            <br />
+            <div class="social"> <!-- Twitter -->
+              <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-url="http://mapion.github.com/MapionMapsDemo" data-text="MapionMaps.framework" data-via="honjo2">Tweet</a>
+            </div> <!-- /Twitter -->
+            <div class="social"> <!-- Facebook -->
+              <div id="fb-root"></div>
+              <div class="fb-like" data-href="http://mapion.github.com/MapionMapsDemo" data-layout="button_count" data-send="false" data-width="120" data-show-faces="false"></div>
+            </div> <!-- /Facebook -->
+            <div class="social"> <!-- Google plusone -->
+              <div class="g-plusone" data-size="medium" data-href="http://mapion.github.com/MapionMapsDemo"></div>
+            </div> <!-- /Google plusone -->
+            <div class="social"> <!-- Hatena -->
+              <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+	data-hatena-bookmark-layout="standard"
+	data-hatena-bookmark-url="http://mapion.github.com/MapionMapsDemo">
+	            <img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none">
+              </a>
+            </div> <!-- /Hatena -->
+          </div>
+        </div>
+        <div class="span9">
+          <!--Body content-->
+          <div class="well">
+            <h1>マピオンAPI利用規約</h1>
+            <br />
+            <p>マピオンAPIおよび、マピオンの提供するソフトウェア・デベロップメント・キット(SDK)、またその他のサービス（以下「本サービス」）をご利用いただくには、マピオンAPI利用規約をよくお読みいただき、同意していただく必要があります。本サービスを利用することにより、マピオンAPI利用規約に同意いただいたものとみなされます。</p>
+            <br />
+            <h2>1. 使用許諾</h2>
+            <br />
+            <p>株式会社マピオン（以下当社という）は利用者に対して、本サービスにおいて利用者の本サービスを使用する権利を非独占的に許諾します。使用許諾権の範囲は、利用者がサービスの一部に本サービスの情報を取り込み、インターネットを通じて、ユーザーに自由に閲覧させることを指します。その方法については、この規約に定める範囲に限定されます。</p>
+            <br />
+            <h2>2. 使用に関する対価</h2>
+            <br />
+            <p>本サービスはこの規約に定める範囲において、利用者が無料で利用することができます。</p>
+            <br />
+            <h2>3. サービスについて</h2>
+            <br />
+            <ol>
+              <li><p>本利用規約に説明する制約と条件に従って、利用者はエンド ユーザーに提供するその他の情報と併せてコンテンツを表示するために API を使用できます。これ以外の目的でのコンテンツのアクセス、複製および使用を禁止します。</p></li>
+              <li><p>本サービスは、非商用目的・無償のサービスでのみ使用できます。利用者は、個人・法人を問いません。</p></li>
+              <li><p>本サービスについての要求は、1 日あたり 10,000ページビューまでとします。この制限を超えた場合、利用者の本サービスへのアクセスがブロックされることがあります。</p></li>
+            </ol>
+            <br />
+            <h2>4. 本サービスの運営、本サービスの内容の適正保持、補償</h2>
+            <br />
+            <p>利用者は、本サービスを利用した成果物に生じるユーザーその他の第三者からの問い合わせ、苦情等（但し、本サービス情報に係わる部分は除く）については、自らの費用と責任にてこれに対応するものとします。</p>
+            <br />
+            <h2>5. 当社の権限</h2>
+            <br />
+            <ol>
+              <li><p>当社は本サービスの信頼性の確保、または法令順守・本規定の遵守もしくは第三者の権利・財産･安全を確保するために必要と判断した場合には、利用者のアプリケーションをモニターしたり当社が必要と考える措置をとることを承認します。</p></li>
+              <li><p>利用者が本サービスを利用して本Webサイト内の情報を表示することが適切でないと判断した場合、事前の通知なく利用者の本サービスの利用を停止・終了することを承認します。</p></li>
+              <li><p>当社は本サービスの運営上必要と判断した場合には、本サービスの利用に制限を設けることを承認します。</p></li>
+            </ol>
+            <br />
+            <h2>6. サポート</h2>
+            <br />
+            <p>本サービスに関するサポートや修正版の提供は、当社が自己の裁量に基づいて行います。なお、当社は、自己の裁量に基づいて、利用者への通知を行うことなく、それらを終了する場合があります。</p>
+            <p>当社は、本サービスの仕様の全部または一部をいつでも変更、もしくは 本サービスの提供を一時停止、または中止できるものとします。また、当社は、利用者への通知を行うことなく、自己の裁量に基づいていつでも、特定の機能やサービスに制限を課すことがあります。</p>
+            <br />
+            <h2>7. 権利関係</h2>
+            <br />
+            <p>本サービスを通じて利用者に提供される地図画像および本サービス自体は、当社及びそのパートナーが著作権を有しています。これらは、いかなる方法でも改変したりすることはできません。利用者は、本サービスで提供された地図画像に表示されるリンクまたは通知を保持し、削除、変更、改変または不明瞭にしないことに同意するものとします。利用者は、上記の知的財産権のあらゆる表示を除去・隠蔽または変更することはできません。</p>
+            <br />
+            <h2>8. 禁止事項</h2>
+            <br />
+            <p>利用者が次の各号の一に該当したときは、当社は利用者の本サービスの利用をただちに停止できるものとする。</p>
+            <br />
+            <ol>
+              <li>
+                <p>以下のいずれかに該当する場合、または、それらの宣伝、取り扱いを目的とする製品・サービスに関連して本サービスを使用すること。もしくはそのような製品・サービス・素材を宣伝するために本サービスを使用すること。</p>
+                <ul>
+                  <li><p>著作権、特許権、商標権等の知的財産権、パブリシティー権、肖像権、信用など他人の権利を侵害、またはこれらを助長するもの</p></li>
+                  <li><p>法律で禁止されているもの。または法律に違反する、もしくは違反するおそれのあるもの</p></li>
+                  <li><p>取引する権限のないもの。または取引するために必要な許認可を得ていないもの</p></li>
+                  <li><p>犯罪を誘発する、もしくは誘発するおそれのあるもの</p></li>
+                  <li><p>他人を攻撃したり、傷つけたりするもの、その他有害なもの</p></li>
+                  <li><p>低俗、わいせつなもの。または公序良俗に反するもの</p></li>
+                  <li><p>人種・性別・宗教・国籍・身体障害または年齢などによる差別的なもの</p></li>
+                </ul>
+              </li>
+              <li><p>法律、政令、省令、条例、規則および命令等を侵害する目的または方法で本サービス を利用すること。著作権、肖像権、信用、その他知的財産権など他人の権利、プライバシーまたは人格権を侵害する目的または方法で本サービス を利用すること。</p></li>
+              <li><p>当社による許諾を得ることなく、本サービスまたは本サービスのライセンスを販売、賃貸、再許諾すること。</p></li>
+              <li><p>合理的に必要相当な数を超える利用、濫用、または当社が定める 本サービスに関する指示等を遵守しない、もしくはこれに違背する用法で本サービス を利用すること。</p></li>
+              <li><p>その他、本サービスの運営方針に外れた態様で本サービスを利用すること、もしくは当社独自の判断により不適当とみなした態様で本サービスを利用すること。</p></li>
+            </ol>
+            <br />
+            <h2>9. 免責</h2>
+            <br />
+            <ol>
+              <li><p>利用者は、本サービスを使用したプログラムの開発または使用、利用者による本規約の違反もしくは第三者の権利侵害等（当社に故意または重過失がある場合は除く）に起因または関連して生じたクレームや請求については、利用者の費用と責任で解決するものとし、当社は損害賠償責任を負わないことを承認します。</p></li>
+              <li><p>利用者は本規定により、本サービスを利用して利用者が開発するアプリケーションおよびその信頼性、またはこれを参照することに関して生じるあらゆる損害、責任、クレーム等に関し当社を免責することとします。</p></li>
+              <li><p>利用者は、本サービスの情報に誤り、エラー、バグおよび中断がないことなど、信頼性・正確性・完全性・などについては一切保証しないことをあらかじめ承認します。</p></li>
+            </ol>
+            <br />
+            <h2>10. 管轄裁判所</h2>
+            <br />
+            <p>本規約および本サービスに関する訴訟を提起する場合、東京地方裁判所をもって専属的な管轄裁判所とします。</p>
+            <br />
+            <h2>11. 利用規約の更新について</h2>
+            <br />
+            <p>当社は、その裁量で本規約の一部または全てについて見直しを行ない、改訂することがきます。重要な変更がある場合には、当社のWeb サイト上に一定期間掲載いたします。</p>
+            <br /><br />
+            <p>以上</p>
+            <br />
+            <p>2008年9月30日　制定</p>
+            
+          </div> <!-- /Body content -->
+        </div>
+      </div>
+      
+      <hr>
+
+      <footer>
+        <p>&copy; <a href="http://www.mapion.co.jp/">Mapion</a> Co.,Ltd. All rights reserved.</p>
+      </footer>
+    </div> <!-- /container-fluid -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+<script src="js/libs/bootstrap/transition.js"></script>
+<script src="js/libs/bootstrap/collapse.js"></script>
+
+<script src="js/script.js"></script>
+<script>
+(function(w,d){
+    w._gaq=[["_setAccount","UA-29986121-2"],["_trackPageview"]];
+    w.___gcfg={lang:"ja"};
+    var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+    a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
+    a(("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js");
+    a("https://apis.google.com/js/plusone.js");
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+    a("//platform.twitter.com/widgets.js");
+    a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
+    f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
+
+</body>
+</html>
