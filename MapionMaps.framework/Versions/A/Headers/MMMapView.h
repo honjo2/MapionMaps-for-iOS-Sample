@@ -37,6 +37,9 @@
 
 - (void)tapOnPopup:(MMMapView *)mapView annotationView:(MMAnnotationView *)annotationView control:(UIControl *)control;
 
+- (void)zoomIn:(MMMapView *)mapView point:(CGPoint)point;
+- (void)zoomOut:(MMMapView *)mapView point:(CGPoint)point;
+
 @end
 
 @interface MMMapView : UIView
@@ -81,5 +84,8 @@
 - (MMPolylineView *)newPolyline;
 - (MMPolylineView *)polylineAtIndex:(int)index;
 - (void)removePolyline:(MMPolylineView *)polyline;
+
+- (void)zoomTo:(float)zoomFactor point:(CGPoint)point;
+- (BOOL)containPoint:(CGPoint)point;
 
 @end
