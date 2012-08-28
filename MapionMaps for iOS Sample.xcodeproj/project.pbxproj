@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB064FC015EB3A1600392653 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB064FBF15EB3A1600392653 /* MapionMaps.framework */; };
+		EB064FCD15EC620500392653 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB064FCC15EC620500392653 /* MapionMaps.framework */; };
 		EB9F005E15D0A0B9009A01DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */; };
 		EB9F006315D0A224009A01DA /* MapionTownMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9F006215D0A224009A01DA /* MapionTownMap.m */; };
 		EB9F007915D0A236009A01DA /* t.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB9F006415D0A236009A01DA /* t.jpg */; };
@@ -61,7 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB064FBF15EB3A1600392653 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
+		EB064FCC15EC620500392653 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 		EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EB9F006115D0A224009A01DA /* MapionTownMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapionTownMap.h; sourceTree = "<group>"; };
 		EB9F006215D0A224009A01DA /* MapionTownMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapionTownMap.m; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 				EBB2284A15CA474F00160A3A /* UIKit.framework in Frameworks */,
 				EBB2284C15CA474F00160A3A /* Foundation.framework in Frameworks */,
 				EBB2284E15CA474F00160A3A /* CoreGraphics.framework in Frameworks */,
-				EB064FC015EB3A1600392653 /* MapionMaps.framework in Frameworks */,
+				EB064FCD15EC620500392653 /* MapionMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +141,7 @@
 		EBB2283A15CA474F00160A3A = {
 			isa = PBXGroup;
 			children = (
-				EB064FBF15EB3A1600392653 /* MapionMaps.framework */,
+				EB064FCC15EC620500392653 /* MapionMaps.framework */,
 				EB9F008E15D0A2B6009A01DA /* README.md */,
 				EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */,
 				EBB2284F15CA474F00160A3A /* MapionMaps for iOS Sample */,
