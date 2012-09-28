@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB988853161564FA002C6015 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB988852161564FA002C6015 /* Default-568h@2x.png */; };
+		EB98885516156536002C6015 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98885416156536002C6015 /* libsqlite3.dylib */; };
+		EB98885716156ADB002C6015 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98885616156ADB002C6015 /* MapionMaps.framework */; };
+		EB98885916156B60002C6015 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = EB98885816156B60002C6015 /* loading.png */; };
 		EB9F005E15D0A0B9009A01DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */; };
 		EB9F006315D0A224009A01DA /* MapionTownMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9F006215D0A224009A01DA /* MapionTownMap.m */; };
 		EB9F007915D0A236009A01DA /* t.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB9F006415D0A236009A01DA /* t.jpg */; };
@@ -47,7 +51,6 @@
 		EBB2287815CA474F00160A3A /* MapionMaps_for_iOS_SampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB2287715CA474F00160A3A /* MapionMaps_for_iOS_SampleTests.m */; };
 		EBB3440E15DCA80700A00B99 /* OpenStreetMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3440D15DCA80700A00B99 /* OpenStreetMap.m */; };
 		EBB3441015DCAB6000A00B99 /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB3440F15DCAB6000A00B99 /* pin@2x.png */; };
-		EBB86DB315F6E23900E7F65E /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB86DB215F6E23900E7F65E /* MapionMaps.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB988852161564FA002C6015 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EB98885416156536002C6015 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EB98885616156ADB002C6015 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
+		EB98885816156B60002C6015 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
 		EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EB9F006115D0A224009A01DA /* MapionTownMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapionTownMap.h; sourceTree = "<group>"; };
 		EB9F006215D0A224009A01DA /* MapionTownMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapionTownMap.m; sourceTree = "<group>"; };
@@ -109,7 +116,6 @@
 		EBB3440C15DCA80700A00B99 /* OpenStreetMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenStreetMap.h; sourceTree = "<group>"; };
 		EBB3440D15DCA80700A00B99 /* OpenStreetMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenStreetMap.m; sourceTree = "<group>"; };
 		EBB3440F15DCAB6000A00B99 /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
-		EBB86DB215F6E23900E7F65E /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +123,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB98885516156536002C6015 /* libsqlite3.dylib in Frameworks */,
 				EB9F005E15D0A0B9009A01DA /* QuartzCore.framework in Frameworks */,
 				EBB2284A15CA474F00160A3A /* UIKit.framework in Frameworks */,
 				EBB2284C15CA474F00160A3A /* Foundation.framework in Frameworks */,
 				EBB2284E15CA474F00160A3A /* CoreGraphics.framework in Frameworks */,
-				EBB86DB315F6E23900E7F65E /* MapionMaps.framework in Frameworks */,
+				EB98885716156ADB002C6015 /* MapionMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +148,8 @@
 		EBB2283A15CA474F00160A3A = {
 			isa = PBXGroup;
 			children = (
-				EBB86DB215F6E23900E7F65E /* MapionMaps.framework */,
+				EB98885616156ADB002C6015 /* MapionMaps.framework */,
+				EB98885416156536002C6015 /* libsqlite3.dylib */,
 				EB9F008E15D0A2B6009A01DA /* README.md */,
 				EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */,
 				EBB2284F15CA474F00160A3A /* MapionMaps for iOS Sample */,
@@ -192,6 +200,8 @@
 		EBB2285015CA474F00160A3A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB98885816156B60002C6015 /* loading.png */,
+				EB988852161564FA002C6015 /* Default-568h@2x.png */,
 				EBB3440F15DCAB6000A00B99 /* pin@2x.png */,
 				EB9F006415D0A236009A01DA /* t.jpg */,
 				EB9F006515D0A236009A01DA /* tq.jpg */,
@@ -338,6 +348,8 @@
 				EB9F008D15D0A236009A01DA /* ttt.jpg in Resources */,
 				EB9F008F15D0A2B6009A01DA /* README.md in Resources */,
 				EBB3441015DCAB6000A00B99 /* pin@2x.png in Resources */,
+				EB988853161564FA002C6015 /* Default-568h@2x.png in Resources */,
+				EB98885916156B60002C6015 /* loading.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv7;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -463,7 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv7;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

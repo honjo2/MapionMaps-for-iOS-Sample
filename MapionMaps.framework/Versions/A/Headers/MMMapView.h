@@ -7,18 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
-#import <QuartzCore/QuartzCore.h>
-
-#import "MMFoundation.h"
 #import "MMMap.h"
 
 @class MMMapView;
-@class MMTiledLayerView;
 @class MMAnnotationView;
-@class MMPolylineView;
-
-@protocol MMTiledLayerViewDelegate;
 
 @protocol MMMapViewDelegate <NSObject>
 
@@ -40,38 +32,33 @@
 - (void)zoomIn:(MMMapView *)mapView point:(CGPoint)point;
 - (void)zoomOut:(MMMapView *)mapView point:(CGPoint)point;
 
+- (NSUInteger)cacheCapacity;
+
 @end
 
 @interface MMMapView : UIView
 
-@property (nonatomic, assign) id <MMMapViewDelegate> delegate;
-@property (nonatomic, assign) CLLocationCoordinate2D centerCoordinate;
-@property (nonatomic, assign) float zoom;
 @property (nonatomic, readonly) float screenScale;
+@property (nonatomic, assign) double metersPerPixel;
 @property (nonatomic, retain) id <MMMap> map;
+@property (nonatomic, assign) float zoom;
+@property (nonatomic, assign) id <MMMapViewDelegate>delegate;
+@property (nonatomic, assign) CLLocationCoordinate2D centerCoordinate;
+@property (nonatomic, assign) MMProjectedPoint centerProjectedPoint;
 @property (nonatomic, retain) MMAnnotationView *openAnnotation;
 
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key;
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key map:(id <MMMap>)map;
+
 - (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated;
-- (void)setCenterProjectedPoint:(MMProjectedPoint)projectedPoint animated:(BOOL)animated;
+- (void)setCenterProjectedPoint:(MMProjectedPoint)point animated:(BOOL)animated;
 
-- (CGPoint)projectedPointToPixel:(MMProjectedPoint)projectedPoint;
 - (MMProjectedPoint)pixelToProjectedPoint:(CGPoint)pixelCoordinate;
-
-- (CGPoint)coordinateToPixel:(CLLocationCoordinate2D)coordinate;
-- (CLLocationCoordinate2D)pixelToCoordinate:(CGPoint)pixelCoordinate;
-
 - (MMProjectedPoint)coordinateToProjectedPoint:(CLLocationCoordinate2D)coordinate;
-- (CLLocationCoordinate2D)projectedPointToCoordinate:(MMProjectedPoint)projectedPoint;
-
 - (CGPoint)coordinateToAbsolutePixel:(CLLocationCoordinate2D)coordinate;
 - (CGPoint)projectedPointToAbsolutePixel:(MMProjectedPoint)projectedPoint;
-
-- (CGPoint)coordinateToScaledPixel:(CLLocationCoordinate2D)coordinate;
-- (CGPoint)projectedPointToScaledPixel:(MMProjectedPoint)projectedPoint;
-
-- (void)setZoom:(float)zoom animated:(BOOL)animated;
+- (CLLocationCoordinate2D)pixelToCoordinate:(CGPoint)pixelCoordinate;
+- (CGPoint)projectedPointToPixel:(MMProjectedPoint)projectedPoint;
 
 - (NSArray *)annotations;
 - (void)addAnnotation:(MMAnnotationView *)annotation;
@@ -81,11 +68,9 @@
 - (void)removeAnnotation:(MMAnnotationView *)annotation;
 - (void)removeAnnotations:(NSArray *)annotations;
 
-- (MMPolylineView *)newPolyline;
-- (MMPolylineView *)polylineAtIndex:(int)index;
-- (void)removePolyline:(MMPolylineView *)polyline;
-
 - (void)zoomTo:(float)zoomFactor point:(CGPoint)point;
 - (BOOL)containPoint:(CGPoint)point;
+
+-(void)removeAllCache;
 
 @end

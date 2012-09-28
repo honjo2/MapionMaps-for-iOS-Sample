@@ -108,14 +108,6 @@ static NSString * const API_KEY = @"APIキー";
 
 - (void)singleTap:(MMMapView *)mapView point:(CGPoint)point {
   //  NSLog(@"singleTap!!!");
-  
-  MMPolylineView *polyline = [mapView polylineAtIndex:0];
-  if (_isFirstPath) {
-    _isFirstPath = NO;
-    polyline.color = [UIColor blueColor];
-    [polyline addCoordinate:mapView_.centerCoordinate];
-  }
-  [polyline addPoint:point];
 }
 
 - (void)singleTapTwoFingers:(MMMapView *)mapView point:(CGPoint)point {
@@ -151,6 +143,10 @@ static NSString * const API_KEY = @"APIキー";
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:annotationView.title message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"閉じる", nil];
   [alert show];
   [alert release];
+}
+
+- (NSUInteger)cacheCapacity {
+  return 1000;
 }
 
 #pragma mark - Private
@@ -199,7 +195,6 @@ static NSString * const API_KEY = @"APIキー";
 
 - (void)testButtonOnClick2 {
   [mapView_ removeAnnotations:mapView_.annotations];
-  [[mapView_ polylineAtIndex:0] initialize];
   _isFirstPath = YES;
 }
 
