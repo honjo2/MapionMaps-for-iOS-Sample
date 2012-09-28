@@ -67,7 +67,6 @@
               <li><a href="document.html#onload">リスナー</a></li>
               <li><a href="document.html#pointtocoordinate">タッチ座標を緯度経度に変換する</a></li>
               <li><a href="document.html#coordinatetopoint">緯度経度をタッチ座標に変換する</a></li>
-              <li><a href="document.html#line">ラインを描画する</a></li>
               <li><a href="document.html#orgmap">独自地図を表示する</a></li>
               <li><a href="document.html#original">独自画像を表示する</a></li>
             </ul>
@@ -263,31 +262,6 @@ coordinate.longitude = 139.3;
 CGPoint point = [mapView coordinateToPixel:coordinate];
 </pre>
 
-						<hr />
-						
-						<h3><a name="line"></a>ラインを描画する</h3>
-<pre class="prettyprint">
-CLLocationCoordinate2D coordinate1;
-coordinate1.latitude = 35.686188;
-coordinate1.longitude = 139.73733;
-  
-CLLocationCoordinate2D coordinate2;
-coordinate2.latitude = 35.645105;
-coordinate2.longitude = 139.711303;
-  
-CLLocationCoordinate2D coordinate3;
-coordinate3.latitude = 35.657794;
-coordinate3.longitude = 139.796078;
-  
-MMPolylineView *polylineView = [mapView newPolyline];
-[polylineView addCoordinate:coordinate1 doDraw:NO]; // doDraw:YESで即描画
-[polylineView addCoordinate:coordinate2 doDraw:NO];
-[polylineView addCoordinate:coordinate3 doDraw:NO];
-// [polylineView addPoint:point doDraw:NO]; // タッチ座標を指定することも可能
-[polylineView calculate]; // doDraw=NOの場合はこれでまとめて描画する
-</pre>      
-						<img src="img/line.png" width="320" height="480">
-						
 						<hr />
 						
 						<h3><a name="orgmap"></a>独自地図を表示する</h3><br />
