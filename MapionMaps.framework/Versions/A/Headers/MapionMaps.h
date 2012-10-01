@@ -13,5 +13,4 @@
 #import <MapionMaps/MMMapView.h>
 #import <MapionMaps/MMMap.h>
 #import <MapionMaps/MMUtil.h>
-#import <MapionMaps/MMPolylineView.h>
 #import <MapionMaps/MMAsyncHTTPOperation.h>
