@@ -69,6 +69,7 @@
               <li><a href="document.html#coordinatetopoint">緯度経度をタッチ座標に変換する</a></li>
               <li><a href="document.html#orgmap">独自地図を表示する</a></li>
               <li><a href="document.html#original">独自画像を表示する</a></li>
+              <li><a href="document.html#cache">キャッシュの上限値を設定する</a></li>
             </ul>
             <h4><a href="apikey.html">APIキー</a></h4>
             <h4><a href="download.html">ダウンロード</a></h4>
@@ -101,11 +102,11 @@
             <ol>
               <li><a href="apikey.html">APIキー</a>からAPIキーを取得する</li>
               <li><a href="download.html">ダウンロード</a>からframeworkをダウンロードし解凍する</li>
-              <li>解凍したディレクトリ内のpin@2x.pngをプロジェクトにコピーする</li>
+              <li>解凍したディレクトリ内のpin@2x.png,loading.pngをプロジェクトにコピーする</li>
               <li>解凍したディレクトリをプロジェクトに追加する</li>
-              <li>QuartzCore.frameworkをプロジェクトに追加する</li>
+              <li>QuartzCore.framework,libsqlite3.dylibをプロジェクトに追加する</li>
             </ol>
-            <img src="img/link_binary_with_libraries.png" width="395" height="261">
+            <img src="img/link_binary_with_libraries.png" width="403" height="281">
             
             <hr />
             
@@ -558,6 +559,17 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
   [self.view addSubview:mapView];
 }
 </pre>
+
+            <hr />
+            
+            <h3><a name="cache"></a>キャッシュの上限値を設定する</h3>
+            <h4>MMMapViewDelegateのcacheCapacityを実装する</h4>
+<pre class="prettyprint">
+- (NSUInteger)cacheCapacity {
+  return 1000; // 4000以上を設定することはできません
+}
+</pre>
+
 
           </div>
         </div>
