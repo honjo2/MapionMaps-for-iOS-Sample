@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB789106161BBAB600041A5D /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB789105161BBAB600041A5D /* MapionMaps.framework */; };
 		EB988853161564FA002C6015 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB988852161564FA002C6015 /* Default-568h@2x.png */; };
 		EB98885516156536002C6015 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98885416156536002C6015 /* libsqlite3.dylib */; };
 		EB98885916156B60002C6015 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = EB98885816156B60002C6015 /* loading.png */; };
@@ -50,7 +51,6 @@
 		EBB2287815CA474F00160A3A /* MapionMaps_for_iOS_SampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB2287715CA474F00160A3A /* MapionMaps_for_iOS_SampleTests.m */; };
 		EBB3440E15DCA80700A00B99 /* OpenStreetMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3440D15DCA80700A00B99 /* OpenStreetMap.m */; };
 		EBB3441015DCAB6000A00B99 /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB3440F15DCAB6000A00B99 /* pin@2x.png */; };
-		EBDDFD6F1619247E00786E94 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBDDFD6E1619247E00786E94 /* MapionMaps.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB789105161BBAB600041A5D /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 		EB988852161564FA002C6015 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EB98885416156536002C6015 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EB98885816156B60002C6015 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		EBB3440C15DCA80700A00B99 /* OpenStreetMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenStreetMap.h; sourceTree = "<group>"; };
 		EBB3440D15DCA80700A00B99 /* OpenStreetMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenStreetMap.m; sourceTree = "<group>"; };
 		EBB3440F15DCAB6000A00B99 /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
-		EBDDFD6E1619247E00786E94 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				EBB2284A15CA474F00160A3A /* UIKit.framework in Frameworks */,
 				EBB2284C15CA474F00160A3A /* Foundation.framework in Frameworks */,
 				EBB2284E15CA474F00160A3A /* CoreGraphics.framework in Frameworks */,
-				EBDDFD6F1619247E00786E94 /* MapionMaps.framework in Frameworks */,
+				EB789106161BBAB600041A5D /* MapionMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +148,7 @@
 		EBB2283A15CA474F00160A3A = {
 			isa = PBXGroup;
 			children = (
-				EBDDFD6E1619247E00786E94 /* MapionMaps.framework */,
+				EB789105161BBAB600041A5D /* MapionMaps.framework */,
 				EB98885416156536002C6015 /* libsqlite3.dylib */,
 				EB9F008E15D0A2B6009A01DA /* README.md */,
 				EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */,
