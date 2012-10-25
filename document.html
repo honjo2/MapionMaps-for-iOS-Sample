@@ -70,6 +70,9 @@
               <li><a href="document.html#orgmap">独自地図を表示する</a></li>
               <li><a href="document.html#original">独自画像を表示する</a></li>
               <li><a href="document.html#cache">キャッシュの上限値を設定する</a></li>
+              <li><a href="document.html#circle">サークルを描画する</a></li>
+              <li><a href="document.html#line">ラインを描画する</a></li>
+              <li><a href="document.html#polygon">ポリゴンを描画する</a></li>
             </ul>
             <h4><a href="apikey.html">APIキー</a></h4>
             <h4><a href="download.html">ダウンロード</a></h4>
@@ -104,9 +107,9 @@
               <li><a href="download.html">ダウンロード</a>からframeworkをダウンロードし解凍する</li>
               <li>解凍したディレクトリ内のpin@2x.png,loading.pngをプロジェクトにコピーする</li>
               <li>解凍したディレクトリをプロジェクトに追加する</li>
-              <li>QuartzCore.framework,libsqlite3.dylibをプロジェクトに追加する</li>
+              <li>CoreLocation.framework,QuartzCore.framework,libsqlite3.dylibをプロジェクトに追加する</li>
             </ol>
-            <img src="img/link_binary_with_libraries.png" width="403" height="281">
+            <img src="img/link_binary_with_libraries.png" width="402" height="298">
             
             <hr />
             
@@ -153,7 +156,7 @@
           
           <h3><a name="pin"></a>ピンを立てる</h3>
 <pre class="prettyprint">
-MMAnnotationView *annotationView = [[MMAnnotationView alloc] initWithCoordinate:mapView.centerCoordinate mapView:mapView];
+MMAnnotationView *annotationView = [[MMAnnotationView alloc] initWithMapView:mapView coordinate:mapView.centerCoordinate];
 annotationView.title = @"タイトル"; // titleを設定すればタップで吹き出しが出る
 // annotationView.image = [UIImage imageNamed:@"myicon.png"]; // 独自アイコンを使いたい場合
 // annotationView.centerOffset = CGPointMake(-21, -28); // アイコンの中心を設定する
@@ -570,7 +573,48 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 }
 </pre>
 
+            <hr />
+            
+            <h3><a name="circle"></a>サークルを描画する</h3>
+<pre class="prettyprint">
+MMCircle *circle = [[MMCircle alloc] initWithMapView:mapView center:mapView.centerCoordinate r:10000]; // rは半径（m）
+circle.fillColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.8];
+[mapView addOverlay:circle];
 
+// [mapView removeOverlay:circle]; // 削除
+</pre>         
+            <img src="img/circle.png" width="360" height="640">
+            
+            <hr />
+            
+            <h3><a name="line"></a>ラインを描画する</h3>
+<pre class="prettyprint">
+MMShape *line = [[MMShape alloc] initWithMapView:mapView];
+[line addLineToPoint:CGPointMake(50, 50)];
+[line addLineToPoint:CGPointMake(100, 100)];
+[mapView addOverlay:line];
+
+// [mapView removeOverlay:line]; // 削除
+</pre>         
+            <img src="img/line.png" width="360" height="640">
+            
+            <hr />
+            
+            <h3><a name="polygon"></a>ポリゴンを描画する</h3>
+<pre class="prettyprint">
+MMShape *polygon = [[MMShape alloc] initWithMapView:mapView];
+polygon.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
+[polygon addLineToPoint:CGPointMake(100, 100)]; // 緯度経度を指定したい場合はaddLineToCoordinate:を使う
+[polygon addLineToPoint:CGPointMake(200, 200)];
+[polygon addLineToPoint:CGPointMake(200, 100)];
+[polygon addLineToPoint:CGPointMake(100, 100)];
+[polygon closePath]; // ポリゴンの場合はこうして明示的に閉じる
+[mapView addOverlay:polygon];
+
+// [mapView removeOverlay:polygon]; // 削除
+</pre>         
+            <img src="img/polygon.png" width="360" height="640">
+            
           </div>
         </div>
       </div>
