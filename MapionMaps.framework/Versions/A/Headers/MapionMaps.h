@@ -14,3 +14,6 @@
 #import <MapionMaps/MMMap.h>
 #import <MapionMaps/MMUtil.h>
 #import <MapionMaps/MMAsyncHTTPOperation.h>
+#import <MapionMaps/MMOverlay.h>
+#import <MapionMaps/MMCircle.h>
+#import <MapionMaps/MMShape.h>

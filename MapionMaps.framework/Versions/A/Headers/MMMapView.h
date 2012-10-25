@@ -11,6 +11,7 @@
 
 @class MMMapView;
 @class MMAnnotationView;
+@class MMOverlay;
 
 @protocol MMMapViewDelegate <NSObject>
 
@@ -38,7 +39,6 @@
 
 @interface MMMapView : UIView
 
-@property (nonatomic, readonly) float screenScale;
 @property (nonatomic, assign) double metersPerPixel;
 @property (nonatomic, retain) id <MMMap> map;
 @property (nonatomic, assign) float zoom;
@@ -53,11 +53,12 @@
 - (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated;
 - (void)setCenterProjectedPoint:(MMProjectedPoint)point animated:(BOOL)animated;
 
-- (MMProjectedPoint)pixelToProjectedPoint:(CGPoint)pixelCoordinate;
+- (MMProjectedPoint)pixelToProjectedPoint:(CGPoint)pixel;
 - (MMProjectedPoint)coordinateToProjectedPoint:(CLLocationCoordinate2D)coordinate;
+- (CGPoint)coordinateToPixel:(CLLocationCoordinate2D)coordinate;
 - (CGPoint)coordinateToAbsolutePixel:(CLLocationCoordinate2D)coordinate;
 - (CGPoint)projectedPointToAbsolutePixel:(MMProjectedPoint)projectedPoint;
-- (CLLocationCoordinate2D)pixelToCoordinate:(CGPoint)pixelCoordinate;
+- (CLLocationCoordinate2D)pixelToCoordinate:(CGPoint)pixel;
 - (CGPoint)projectedPointToPixel:(MMProjectedPoint)projectedPoint;
 
 - (NSArray *)annotations;
@@ -67,6 +68,12 @@
 - (void)addAnnotations:(NSArray *)annotations animated:(BOOL)animated;
 - (void)removeAnnotation:(MMAnnotationView *)annotation;
 - (void)removeAnnotations:(NSArray *)annotations;
+
+- (NSArray *)overlays;
+- (void)addOverlay:(MMOverlay *)overlay;
+- (void)addOverlays:(NSArray *)overlays;
+- (void)removeOverlay:(MMOverlay *)overlay;
+- (void)removeOverlays:(NSArray *)overlays;
 
 - (void)zoomTo:(float)zoomFactor point:(CGPoint)point;
 - (BOOL)containPoint:(CGPoint)point;

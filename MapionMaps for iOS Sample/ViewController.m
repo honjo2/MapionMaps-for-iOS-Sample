@@ -25,6 +25,7 @@ static NSString * const API_KEY = @"APIキー";
   BOOL _isFirstPath;
   CLLocationCoordinate2D _tmpCenter;
   int _tmpZoom;
+  MMShape *_shape;
 }
 
 @synthesize mapView = mapView_;
@@ -91,12 +92,13 @@ static NSString * const API_KEY = @"APIキー";
 }
 
 - (void)dealloc {
-  [mapView_ release]; mapView_ = nil;
-  [_button release]; _button = nil;
-  [_button2 release]; _button2 = nil;
-  [_mapionMap release]; _mapionMap = nil;
-  [_openStreetMap release]; _openStreetMap = nil;
-  [_mapionTownMap release]; _mapionTownMap = nil;
+  [mapView_ release], mapView_ = nil;
+  [_button release], _button = nil;
+  [_button2 release], _button2 = nil;
+  [_mapionMap release], _mapionMap = nil;
+  [_openStreetMap release], _openStreetMap = nil;
+  [_mapionTownMap release], _mapionTownMap = nil;
+  [_shape release], _shape = nil;
   [super dealloc];
 }
 
@@ -108,6 +110,15 @@ static NSString * const API_KEY = @"APIキー";
 
 - (void)singleTap:(MMMapView *)mapView point:(CGPoint)point {
   //  NSLog(@"singleTap!!!");
+  if (_isFirstPath) {
+    _isFirstPath = NO;
+    _shape = [[[MMShape alloc] initWithMapView:self.mapView] retain];
+    [self.mapView addOverlay:_shape];
+    [_shape addLineToCoordinate:self.mapView.centerCoordinate];
+    [_shape addLineToPoint:point];
+  } else {
+    [_shape addLineToPoint:point];
+  }
 }
 
 - (void)singleTapTwoFingers:(MMMapView *)mapView point:(CGPoint)point {
@@ -118,7 +129,7 @@ static NSString * const API_KEY = @"APIキー";
 //  NSLog(@"longSingleTap!!!");
   
   CLLocationCoordinate2D coordinate = [mapView_ pixelToCoordinate:point];
-  MMAnnotationView *annotationView = [[MMAnnotationView alloc] initWithCoordinate:coordinate mapView:mapView_];
+  MMAnnotationView *annotationView = [[MMAnnotationView alloc] initWithMapView:mapView_ coordinate:coordinate];
   annotationView.title = [NSString stringWithFormat:@"位置:%f:%f", coordinate.latitude, coordinate.longitude];
   [mapView_ addAnnotation:annotationView animated:YES];
 }
@@ -170,7 +181,8 @@ static NSString * const API_KEY = @"APIキー";
 }
 
 - (void)testButtonOnClick {
-  _isFirstPath = YES;
+  [self removeAnnotationsAndOverlays];
+  
   if ([mapView_.map isKindOfClass:[MMMapionMap class]]) {
     mapView_.map = _openStreetMap;
   } else if ([mapView_.map isKindOfClass:[OpenStreetMap class]]) {
@@ -194,7 +206,12 @@ static NSString * const API_KEY = @"APIキー";
 }
 
 - (void)testButtonOnClick2 {
-  [mapView_ removeAnnotations:mapView_.annotations];
+  [self removeAnnotationsAndOverlays];
+}
+
+- (void)removeAnnotationsAndOverlays {
+  [self.mapView removeAnnotations:self.mapView.annotations];
+  [self.mapView removeOverlays:self.mapView.overlays];
   _isFirstPath = YES;
 }
 
