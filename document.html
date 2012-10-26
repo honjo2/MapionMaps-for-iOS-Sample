@@ -590,7 +590,7 @@ circle.fillColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.8];
             <h3><a name="line"></a>ラインを描画する</h3>
 <pre class="prettyprint">
 MMShape *line = [[MMShape alloc] initWithMapView:mapView];
-[line addLineToPoint:CGPointMake(50, 50)];
+[line addLineToPoint:CGPointMake(50, 50)]; // 緯度経度を指定したい場合はaddLineToCoordinate:を使う
 [line addLineToPoint:CGPointMake(100, 100)];
 [mapView addOverlay:line];
 
