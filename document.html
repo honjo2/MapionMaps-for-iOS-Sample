@@ -594,6 +594,10 @@ MMShape *line = [[MMShape alloc] initWithMapView:mapView];
 [line addLineToPoint:CGPointMake(100, 100)];
 [mapView addOverlay:line];
 
+// line.lineColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6]; // ラインの色を指定する場合
+// line.lineCap = kCALineCapRound; // ライン先端の形状 kCALineCapButt（デフォルト） / kCALineCapRound / kCALineCapSquare
+// line.lineJoin = kCALineJoinRound; // ライン接続部の形状 kCALineJoinMiter（デフォルト） / kCALineJoinRound / kCALineJoinBevel
+
 // [mapView removeOverlay:line]; // 削除
 </pre>         
             <img src="img/line.png" width="360" height="640">
@@ -610,6 +614,11 @@ polygon.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
 [polygon addLineToPoint:CGPointMake(100, 100)];
 [polygon closePath]; // ポリゴンの場合はこうして明示的に閉じる
 [mapView addOverlay:polygon];
+
+// polygon.lineColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6]; // ラインの色を指定する場合
+// polygon.lineCap = kCALineCapRound; // ライン先端の形状 kCALineCapButt（デフォルト） / kCALineCapRound / kCALineCapSquare
+// polygon.lineJoin = kCALineJoinRound; // ライン接続部の形状 kCALineJoinMiter（デフォルト） / kCALineJoinRound / kCALineJoinBevel
+// polygon.fillColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.6]; // ポリゴンの中身に色を付ける場合
 
 // [mapView removeOverlay:polygon]; // 削除
 </pre>         
