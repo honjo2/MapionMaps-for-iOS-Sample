@@ -50,8 +50,8 @@
 		EBB2287815CA474F00160A3A /* MapionMaps_for_iOS_SampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB2287715CA474F00160A3A /* MapionMaps_for_iOS_SampleTests.m */; };
 		EBB3440E15DCA80700A00B99 /* OpenStreetMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3440D15DCA80700A00B99 /* OpenStreetMap.m */; };
 		EBB3441015DCAB6000A00B99 /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB3440F15DCAB6000A00B99 /* pin@2x.png */; };
-		EBC6EDEB16390B1100080301 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC6EDEA16390B1100080301 /* MapionMaps.framework */; };
 		EBC6EDED16390B4200080301 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC6EDEC16390B4200080301 /* CoreLocation.framework */; };
+		EBC6EE24163A3F9B00080301 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC6EE23163A3F9B00080301 /* MapionMaps.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,8 +116,8 @@
 		EBB3440C15DCA80700A00B99 /* OpenStreetMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenStreetMap.h; sourceTree = "<group>"; };
 		EBB3440D15DCA80700A00B99 /* OpenStreetMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenStreetMap.m; sourceTree = "<group>"; };
 		EBB3440F15DCAB6000A00B99 /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
-		EBC6EDEA16390B1100080301 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 		EBC6EDEC16390B4200080301 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EBC6EE23163A3F9B00080301 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 				EBB2284A15CA474F00160A3A /* UIKit.framework in Frameworks */,
 				EBB2284C15CA474F00160A3A /* Foundation.framework in Frameworks */,
 				EBB2284E15CA474F00160A3A /* CoreGraphics.framework in Frameworks */,
-				EBC6EDEB16390B1100080301 /* MapionMaps.framework in Frameworks */,
+				EBC6EE24163A3F9B00080301 /* MapionMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,8 +151,8 @@
 		EBB2283A15CA474F00160A3A = {
 			isa = PBXGroup;
 			children = (
+				EBC6EE23163A3F9B00080301 /* MapionMaps.framework */,
 				EBC6EDEC16390B4200080301 /* CoreLocation.framework */,
-				EBC6EDEA16390B1100080301 /* MapionMaps.framework */,
 				EB98885416156536002C6015 /* libsqlite3.dylib */,
 				EB9F008E15D0A2B6009A01DA /* README.md */,
 				EB9F005D15D0A0B9009A01DA /* QuartzCore.framework */,

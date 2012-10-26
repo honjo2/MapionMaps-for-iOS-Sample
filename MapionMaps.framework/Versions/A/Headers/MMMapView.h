@@ -56,8 +56,6 @@
 - (MMProjectedPoint)pixelToProjectedPoint:(CGPoint)pixel;
 - (MMProjectedPoint)coordinateToProjectedPoint:(CLLocationCoordinate2D)coordinate;
 - (CGPoint)coordinateToPixel:(CLLocationCoordinate2D)coordinate;
-- (CGPoint)coordinateToAbsolutePixel:(CLLocationCoordinate2D)coordinate;
-- (CGPoint)projectedPointToAbsolutePixel:(MMProjectedPoint)projectedPoint;
 - (CLLocationCoordinate2D)pixelToCoordinate:(CGPoint)pixel;
 - (CGPoint)projectedPointToPixel:(MMProjectedPoint)projectedPoint;
 

@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) MMPopupView *popupView;
 @property (nonatomic, assign) CGPoint centerOffset;
+@property (nonatomic, assign) BOOL noDetail;
 
 - (id)initWithMapView:(MMMapView *)mapView coordinate:(CLLocationCoordinate2D)coordinate;
 - (void)onClick;
