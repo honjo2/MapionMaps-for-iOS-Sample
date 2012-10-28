@@ -131,6 +131,11 @@ static NSString * const API_KEY = @"APIキー";
   CLLocationCoordinate2D coordinate = [mapView_ pixelToCoordinate:point];
   MMAnnotationView *annotationView = [[MMAnnotationView alloc] initWithMapView:mapView_ coordinate:coordinate];
   annotationView.title = [NSString stringWithFormat:@"位置:%f:%f", coordinate.latitude, coordinate.longitude];
+  annotationView.tapOnPopup = ^(MMMapView *mapView) {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:annotationView.title message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"閉じる", nil];
+    [alert show];
+    [alert release];
+  };
   [mapView_ addAnnotation:annotationView animated:YES];
 }
 
@@ -148,12 +153,6 @@ static NSString * const API_KEY = @"APIキー";
 
 - (void)afterMapZoom:(MMMapView *)mapView {
   //  NSLog(@"afterMapZoom!!!");
-}
-
-- (void)tapOnPopup:(MMMapView *)mapView annotationView:(MMAnnotationView *)annotationView control:(UIControl *)control {
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:annotationView.title message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"閉じる", nil];
-  [alert show];
-  [alert release];
 }
 
 - (NSUInteger)cacheCapacity {

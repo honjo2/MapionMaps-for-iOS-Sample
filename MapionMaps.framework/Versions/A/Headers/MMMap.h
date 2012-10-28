@@ -23,7 +23,6 @@
 - (int)tileLength;
 - (MMProjectedRect)projectedRect;
 - (NSString *)name;
-- (NSString *)version;
 - (NSString *)copyright;
 
 @optional

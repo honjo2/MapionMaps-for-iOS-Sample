@@ -19,9 +19,10 @@
 @property (nonatomic, retain) MMPopupView *popupView;
 @property (nonatomic, assign) CGPoint centerOffset;
 @property (nonatomic, assign) BOOL noDetail;
+@property (nonatomic, copy) void (^tapOnPopup)(MMMapView *mapView);
 
 - (id)initWithMapView:(MMMapView *)mapView coordinate:(CLLocationCoordinate2D)coordinate;
-- (void)onClick;
+- (BOOL)onClick;
 - (void)onClose;
 - (void)reCalculate;
 - (void)setCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated;

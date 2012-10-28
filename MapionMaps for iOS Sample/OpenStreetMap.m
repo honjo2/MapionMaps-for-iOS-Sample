@@ -10,16 +10,24 @@
 
 @implementation OpenStreetMap
 
-- (id)init {
-	if (!(self = [super init])) return nil;
-  
-  self.maxZoom = 18;
-  self.minZoom = 0;
-  self.name = @"OpenStreetMap";
-  self.version = @"";
-  self.copyright = @"Map data © OpenStreetMap contributors, CC BY-SA";
-  
-	return self;
+- (int)tileLength {
+  return 512;
+}
+
+- (float)minZoom {
+  return 0;
+}
+
+- (float)maxZoom {
+  return 18;
+}
+
+- (NSString *)name {
+  return @"OpenStreetMap";
+}
+
+- (NSString *)copyright {
+  return @"Map data © OpenStreetMap contributors, CC BY-SA";
 }
 
 - (NSURL *)URLForTile:(MMTile)tile {

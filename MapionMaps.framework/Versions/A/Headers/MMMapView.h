@@ -28,8 +28,6 @@
 - (void)singleTapTwoFingers:(MMMapView *)mapView point:(CGPoint)point;
 - (void)longSingleTap:(MMMapView *)mapView point:(CGPoint)point;
 
-- (void)tapOnPopup:(MMMapView *)mapView annotationView:(MMAnnotationView *)annotationView control:(UIControl *)control;
-
 - (void)zoomIn:(MMMapView *)mapView point:(CGPoint)point;
 - (void)zoomOut:(MMMapView *)mapView point:(CGPoint)point;
 
