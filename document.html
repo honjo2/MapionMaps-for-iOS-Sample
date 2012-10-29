@@ -160,6 +160,7 @@ annotationView.title = @"タイトル"; // titleを設定すればタップで�
 annotationView.tapOnPopup = ^(MMMapView *mapView) {
   // 吹き出し内の詳細ボタンタップ時の挙動をここに書く
 };
+// annotationView.noDetail = YES; // 吹き出し内の詳細ボタンを非表示にしたい場合
 // annotationView.image = [UIImage imageNamed:@"myicon.png"]; // 独自アイコンを使いたい場合
 // annotationView.centerOffset = CGPointMake(-21, -28); // アイコンの中心を設定する
 [mapView addAnnotation:annotationView animated:NO]; // animated:YESでアニメーションする
