@@ -63,10 +63,9 @@
               <li><a href="document.html#map">地図を表示する</a></li>
               <li><a href="document.html#specifiedmap">緯度経度縮尺を指定して地図を表示する</a></li>
               <li><a href="document.html#pin">ピンを立てる</a></li>
-              <li><a href="document.html#removepin">ピンを削除する</a></li>
-              <li><a href="document.html#onload">リスナー</a></li>
-              <li><a href="document.html#pointtocoordinate">タッチ座標を緯度経度に変換する</a></li>
-              <li><a href="document.html#coordinatetopoint">緯度経度をタッチ座標に変換する</a></li>
+              <li><a href="document.html#onload">リスナーを設定する</a></li>
+              <li><a href="document.html#pointtocoordinate">スクリーン座標を緯度経度に変換する</a></li>
+              <li><a href="document.html#coordinatetopoint">緯度経度をスクリーン座標に変換する</a></li>
               <li><a href="document.html#orgmap">独自地図を表示する</a></li>
               <li><a href="document.html#original">独自画像を表示する</a></li>
               <li><a href="document.html#cache">キャッシュの上限値を設定する</a></li>
@@ -158,42 +157,18 @@
 <pre class="prettyprint">
 MMAnnotationView *annotationView = [[MMAnnotationView alloc] initWithMapView:mapView coordinate:mapView.centerCoordinate];
 annotationView.title = @"タイトル"; // titleを設定すればタップで吹き出しが出る
+annotationView.tapOnPopup = ^(MMMapView *mapView) {
+  // 吹き出し内の詳細ボタンタップ時の挙動をここに書く
+};
 // annotationView.image = [UIImage imageNamed:@"myicon.png"]; // 独自アイコンを使いたい場合
 // annotationView.centerOffset = CGPointMake(-21, -28); // アイコンの中心を設定する
 [mapView addAnnotation:annotationView animated:NO]; // animated:YESでアニメーションする
-</pre>
-					<h4>吹き出し内のボタンタップ時の挙動を指定する場合はMMMapViewDelegateを作ってMMMapViewのdelegateプロパティに設定する</h4>
-<pre class="prettyprint">
-#import &lt;MapionMaps/MapionMaps.h&gt;
 
-@interface MapViewDelegate : NSObject &lt;MMMapViewDelegate&gt;
-
-@end
-
-@implementation MapViewDelegate
-
-- (void)tapOnPopup:(MMMapView *)mapView annotationView:(MMAnnotationView *)annotationView control:(UIControl *)control {
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:annotationView.title message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"閉じる", nil];
-  [alert show];
-  [alert release];
-}
-
-@end
-</pre>					
-            <img src="img/pinwith.png" width="320" height="480">
+// [mapView removeAnnotation:annotationView]; // ピンを削除する場合
+// [mapView removeAnnotations:mapView.annotations]; // 全てのピンを削除する場合
+</pre>				
+           <img src="img/pinwith.png" width="320" height="480">
             
-            <hr />
-            
-            <h3><a name="removepin"></a>ピンを削除する</h3>
-            <h4>ピンを指定して削除する</h4>
-<pre class="prettyprint">
-  [mapView removeAnnotation:annotationView];
-</pre>
-            <h4>すべてのピンを削除する</h4>
-<pre class="prettyprint">
-  [mapView removeAnnotations:mapView.annotations];
-</pre>
-         
            <hr />
                     
            <h3><a name="onload"></a>リスナー</h3> 
@@ -239,10 +214,6 @@ annotationView.title = @"タイトル"; // titleを設定すればタップで�
   // ズームチェンジした後
 }
 
-- (void)tapOnPopup:(MMMapView *)mapView annotationView:(MMAnnotationView *)annotationView control:(UIControl *)control {
-  // 吹き出し内のボタンタップ時
-}
-
 @end
 </pre>
 <pre class="prettyprint">
@@ -250,7 +221,7 @@ mapView.delegate = [[MapViewDelegate alloc] init];
 </pre>
             <hr />
             
-            <h3><a name="pointtocoordinate"></a>タッチ座標を緯度経度に変換する</h3>
+            <h3><a name="pointtocoordinate"></a>スクリーン座標を緯度経度に変換する</h3>
 <pre class="prettyprint">
 CGPoint point = [touch locationInView:mapView];
 CLLocationCoordinate2D coordinate = [mapView pixelToCoordinate:point];
@@ -258,7 +229,7 @@ CLLocationCoordinate2D coordinate = [mapView pixelToCoordinate:point];
 
             <hr />
             
-            <h3><a name="coordinatetopoint"></a>緯度経度をタッチ座標に変換する</h3>
+            <h3><a name="coordinatetopoint"></a>緯度経度をスクリーン座標に変換する</h3>
 <pre class="prettyprint">
 CLLocationCoordinate2D coordinate;
 coordinate.latitude = 35.3;
@@ -280,17 +251,24 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 
 @implementation OpenStreetMap
 
-- (id)init {
-  if (!(self = [super init])) return nil;
-  
-  self.maxZoom = 18;
-  self.minZoom = 0;
-  self.name = @"OpenStreetMap";
-  self.version = @"";
-  self.copyright = @"Map data © OpenStreetMap contributors, CC BY-SA";
-//  self.tileLength = 384; // ズームにおける1タイルあたりの最大サイズ。デフォルトは256。OpenStreetMapのタイルのサイズは256なので384にすると1.5倍まで拡大する。
-  
-  return self;
+- (int)tileLength {
+  return 512; // ズームにおける1タイルあたりの最大サイズ。デフォルトは256。OpenStreetMapのタイルのサイズは256なので512にすると2倍まで拡大する。
+}
+
+- (float)minZoom {
+  return 0;
+}
+
+- (float)maxZoom {
+  return 18;
+}
+
+- (NSString *)name {
+  return @"OpenStreetMap";
+}
+
+- (NSString *)copyright {
+  return @"Map data © OpenStreetMap contributors, CC BY-SA";
 }
 
 - (NSURL *)URLForTile:(MMTile)tile {
@@ -325,17 +303,24 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 
 @implementation GSIMap
 
-- (id)init {
-  if (!(self = [super init])) return nil;
-  
-  self.maxZoom = 18;
-  self.minZoom = 5;
-  self.name = @"GSI";
-  self.version = @"";
-  self.copyright = @"国土地理院";
-//  self.tileLength = 384; // ズームにおける1タイルあたりの最大サイズ。デフォルトは256。国土地理院のタイルのサイズは256なので384にすると1.5倍まで拡大する。
-  
-  return self;
+- (int)tileLength {
+  return 512; // 国土地理院のタイルのサイズは256なのでこうすると2倍表示
+}
+
+- (float)minZoom {
+  return 5;
+}
+
+- (float)maxZoom {
+  return 18;
+}
+
+- (NSString *)name {
+  return @"GSI";
+}
+
+- (NSString *)copyright {
+  return @"国土地理院";
 }
 
 - (NSURL *)URLForTile:(MMTile)tile {
@@ -447,51 +432,38 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 
 @interface MapionTownMap : NSObject &lt;MMMap&gt;
 
-@property (nonatomic, assign) float minZoom;
-@property (nonatomic, assign) float maxZoom;
-@property (nonatomic, assign) NSUInteger tileLength;
-@property (nonatomic, assign) MMProjectedRect projectedRect;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *version;
-@property (nonatomic, retain) NSString *copyright;
-
 @end
 
 #import "MapionTownMap.h"
 
 @implementation MapionTownMap
 
-@synthesize minZoom = minZoom_;
-@synthesize maxZoom = maxZoom_;
-@synthesize tileLength = tileLength_;
-@synthesize projectedRect = projectedRect_;
-@synthesize name = name_;
-@synthesize version = version_;
-@synthesize copyright = copyright_;
+#pragma mark - MMMap
 
-- (id)init {
-  if (!(self = [super init])) return nil;
-  
-  float screenScale = 1.0;
-  if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
-    screenScale = [[[UIScreen mainScreen] valueForKey:@"scale"] floatValue];
-  }
-  float maxLength = 256 / screenScale;
-  
-  self.projectedRect = MMProjectedRectMake(-maxLength, -maxLength, maxLength * 2, maxLength * 2);
-  
-  self.tileLength = 256;
-  self.maxZoom = 2;
-  self.minZoom = 0;
-  
-  self.name = @"MapionTown";
-  self.version = @"";
-  self.copyright = @"";
-  
-  return self;
+- (int)tileLength {
+  return 256;
 }
 
-#pragma mark - MMMap
+- (float)minZoom {
+  return 0;
+}
+
+- (float)maxZoom {
+  return 2;
+}
+
+- (NSString *)name {
+  return @"MapionTown";
+}
+
+- (NSString *)copyright {
+  return @"© Mapion";
+}
+
+- (MMProjectedRect)projectedRect {
+  float maxLength = 256 / [UIScreen mainScreen].scale;
+  return MMProjectedRectMake(-maxLength, -maxLength, maxLength * 2, maxLength * 2);
+}
 
 - (UIImage *)imageForTile:(MMTile)tile {
   NSString *fileName = [self tileToFileName:tile];

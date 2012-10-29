@@ -1,3 +1,8 @@
+### 0.8 (2012.10.29)
+
+* MMMapViewDelegateのtapOnPopup:annotationView:control:を廃止しMMAnnotationViewにtapOnPopup追加
+* その他軽微な修正
+
 ### 0.7 (2012.10.26)
 
 * Absolute系のメソッド削除
