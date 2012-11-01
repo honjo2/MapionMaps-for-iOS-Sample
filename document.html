@@ -626,7 +626,27 @@ polygon.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
 }
 
 - (NSURL *)URLForTile:(MMTile)tile {
-  NSString *urlString = [NSString stringWithFormat:@"http://openweathermap.org/t/tile.cgi/1.0.0/PRECIP/%d/%d/%d.png", tile.zoom, tile.x, tile.y];
+  NSString *dateParameter;
+  
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"YYYYMMddHHmm"];
+  NSDate *date = [NSDate date];
+  NSString *dateString = [formatter stringFromDate:date];
+  [formatter release];
+  
+  NSString *one = [dateString substringWithRange:NSMakeRange(0, 11)];
+  NSString *two = [dateString substringFromIndex:11];
+  int twoInt = [two intValue];
+  if (twoInt < 5) {
+    dateParameter = [NSString stringWithFormat:@"%@0", one];
+  } else if (twoInt > 5) {
+    dateParameter = [NSString stringWithFormat:@"%@5", one];
+  } else {
+    dateParameter = dateString;
+  }
+  
+  NSString *urlString = [NSString stringWithFormat:@"http://openweathermap.org/t/tile.cgi/1.0.0/PRECIP/%d/%d/%d.png?date=%@", tile.zoom, tile.x, tile.y, dateParameter];
+  
   return [NSURL URLWithString:urlString];
 }
 
