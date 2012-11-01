@@ -1,3 +1,7 @@
+### 0.9 (2012.10.31)
+
+* 複数レイヤに対応した
+
 ### 0.8 (2012.10.29)
 
 * MMMapViewDelegateのtapOnPopup:annotationView:control:を廃止しMMAnnotationViewにtapOnPopup追加

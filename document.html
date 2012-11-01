@@ -72,6 +72,7 @@
               <li><a href="document.html#circle">サークルを描画する</a></li>
               <li><a href="document.html#line">ラインを描画する</a></li>
               <li><a href="document.html#polygon">ポリゴンを描画する</a></li>
+              <li><a href="document.html#layer">レイヤを追加する</a></li>
             </ul>
             <h4><a href="apikey.html">APIキー</a></h4>
             <h4><a href="download.html">ダウンロード</a></h4>
@@ -104,7 +105,7 @@
             <ol>
               <li><a href="apikey.html">APIキー</a>からAPIキーを取得する</li>
               <li><a href="download.html">ダウンロード</a>からframeworkをダウンロードし解凍する</li>
-              <li>解凍したディレクトリ内のpin@2x.png,loading.pngをプロジェクトにコピーする（それ以外のアイコンも自由にお使い下さい）</li>
+              <li>解凍したディレクトリ内のpin@2x.pngをプロジェクトにコピーする（それ以外のアイコンも自由にお使い下さい）</li>
               <li>解凍したディレクトリをプロジェクトに追加する</li>
               <li>CoreLocation.framework,QuartzCore.framework,libsqlite3.dylibをプロジェクトに追加する</li>
             </ol>
@@ -143,9 +144,7 @@
   
   [mapView setZoom:12.3 animated:NO]; // animated:YESでアニメーションする
   
-  CLLocationCoordinate2D coordinate;
-  coordinate.latitude = 35.3;
-  coordinate.longitude = 139.3;
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(35.3, 139.3);
   [mapView setCenterCoordinate:coordinate animated:NO]; // animated:YESでアニメーションする
 }
 </pre>
@@ -232,9 +231,7 @@ CLLocationCoordinate2D coordinate = [mapView pixelToCoordinate:point];
             
             <h3><a name="coordinatetopoint"></a>緯度経度をスクリーン座標に変換する</h3>
 <pre class="prettyprint">
-CLLocationCoordinate2D coordinate;
-coordinate.latitude = 35.3;
-coordinate.longitude = 139.3;
+CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(35.3, 139.3);
 CGPoint point = [mapView coordinateToPixel:coordinate];
 </pre>
 
@@ -472,9 +469,7 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 }
 
 - (CLLocationCoordinate2D)projectedPointToCoordinate:(MMProjectedPoint)point {
-  CLLocationCoordinate2D coordinate;
-  coordinate.latitude = point.y;
-  coordinate.longitude = point.x;
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(point.y, point.x);
   return coordinate;
 }
 
@@ -596,6 +591,55 @@ polygon.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
 // [mapView removeOverlay:polygon]; // 削除
 </pre>         
             <img src="img/polygon.png" width="360" height="640">
+            
+            <hr />
+            
+            <h3><a name="layer"></a>レイヤを追加する</h3>
+            <h4>OpenWeatherMapの降水予報のMapを追加する場合</h4>
+<pre class="prettyprint">
+#import &lt;MapionMaps/MapionMaps.h&gt;
+
+@interface OpenStreetMap : MMAbstractEPSG900913Map
+
+@end
+
+@implementation OpenWeatherMap
+
+- (int)tileLength {
+  return 384;
+}
+
+- (float)minZoom {
+  return 0;
+}
+
+- (float)maxZoom {
+  return 18;
+}
+
+- (NSString *)name {
+  return @"OpenWeatherMapPrecip";
+}
+
+- (NSString *)copyright {
+  return @"Data CC-By-SA by Forecast layers from Environment Canada";
+}
+
+- (NSURL *)URLForTile:(MMTile)tile {
+  NSString *urlString = [NSString stringWithFormat:@"http://openweathermap.org/t/tile.cgi/1.0.0/PRECIP/%d/%d/%d.png", tile.zoom, tile.x, tile.y];
+  return [NSURL URLWithString:urlString];
+}
+
+@end
+</pre>
+<pre class="prettyprint">
+id &lt;MMMap&gt; openWeatherMap = [[OpenWeatherMap alloc] init];
+[mapView addMap:openWeatherMap];
+// [mapView addMap:openWeatherMap atIndex:1]; // indexを指定して追加する場合
+// [mapView removeMap:openWeatherMap]; // 削除する場合
+</pre>         
+            <img src="img/layer.png" width="360" height="640">
+            
             
           </div>
         </div>
