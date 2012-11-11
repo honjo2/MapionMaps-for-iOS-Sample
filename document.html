@@ -73,6 +73,7 @@
               <li><a href="document.html#line">ラインを描画する</a></li>
               <li><a href="document.html#polygon">ポリゴンを描画する</a></li>
               <li><a href="document.html#layer">レイヤを追加する</a></li>
+              <li><a href="document.html#rotate">回転する</a></li>
             </ul>
             <h4><a href="apikey.html">APIキー</a></h4>
             <h4><a href="download.html">ダウンロード</a></h4>
@@ -659,8 +660,16 @@ id &lt;MMMap&gt; openWeatherMap = [[OpenWeatherMap alloc] init];
 // [mapView removeMap:openWeatherMap]; // 削除する場合
 // [mapView removeMapAtIndex:1]; // indexを指定して削除する場合
 </pre>         
-            <img src="img/layer.png" width="360" height="640">
+            <img src="img/layer.png" width="360" height="639">
             
+            <hr />
+            
+            <h3><a name="rotate"></a>回転する</h3>
+<pre class="prettyprint">
+mapView.degrees = 50.0; // 50度回転する
+</pre>         
+            <h4>回転してもピンは常に上を向く</h4>
+            <img src="img/rotate.png" width="360" height="639">
             
           </div>
         </div>
