@@ -19,6 +19,7 @@ static NSString * const API_KEY = @"APIキー";
 @implementation ViewController {
   UIButton *_button;
   UIButton *_button2;
+  UIButton *_button3;
   id <MMMap> _mapionMap;
   id <MMMap> _openStreetMap;
   id <MMMap> _mapionTownMap;
@@ -26,6 +27,7 @@ static NSString * const API_KEY = @"APIキー";
   CLLocationCoordinate2D _tmpCenter;
   int _tmpZoom;
   MMShape *_shape;
+  NSUInteger _degrees;
 }
 
 @synthesize mapView = mapView_;
@@ -52,6 +54,7 @@ static NSString * const API_KEY = @"APIキー";
   [self.view addSubview:self.mapView];
   
   _isFirstPath = YES;
+  _degrees = 0;
   
   [self createTestButton];
 }
@@ -95,6 +98,7 @@ static NSString * const API_KEY = @"APIキー";
   [mapView_ release], mapView_ = nil;
   [_button release], _button = nil;
   [_button2 release], _button2 = nil;
+  [_button3 release], _button3 = nil;
   [_mapionMap release], _mapionMap = nil;
   [_openStreetMap release], _openStreetMap = nil;
   [_mapionTownMap release], _mapionTownMap = nil;
@@ -165,6 +169,7 @@ static NSString * const API_KEY = @"APIキー";
   
   [_button removeFromSuperview]; _button = nil;
   [_button2 removeFromSuperview]; _button2 = nil;
+  [_button3 removeFromSuperview]; _button3 = nil;
   
   _button = [UIButton buttonWithType:100];
   [_button setTitle:[NSString stringWithUTF8String:"地図切替"] forState:UIControlStateNormal];
@@ -174,13 +179,21 @@ static NSString * const API_KEY = @"APIキー";
   
   _button2 = [UIButton buttonWithType:100];
   [_button2 setTitle:[NSString stringWithUTF8String:"地図上クリア"] forState:UIControlStateNormal];
-  _button2.frame = CGRectMake(0, 50, _button2.frame.size.width, _button2.frame.size.height);
+  _button2.frame = CGRectMake(0, 35, _button2.frame.size.width, _button2.frame.size.height);
   [_button2 addTarget:self action:@selector(testButtonOnClick2) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:_button2];
+  
+  _button3 = [UIButton buttonWithType:100];
+  [_button3 setTitle:[NSString stringWithUTF8String:"回転+"] forState:UIControlStateNormal];
+  _button3.frame = CGRectMake(0, 70, _button3.frame.size.width, _button3.frame.size.height);
+  [_button3 addTarget:self action:@selector(testButtonOnClick3) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:_button3];
 }
 
 - (void)testButtonOnClick {
   [self removeAnnotationsAndOverlays];
+  
+  _degrees = 0;
   
   if ([mapView_.map isKindOfClass:[MMMapionMap class]]) {
     mapView_.map = _openStreetMap;
@@ -206,6 +219,12 @@ static NSString * const API_KEY = @"APIキー";
 
 - (void)testButtonOnClick2 {
   [self removeAnnotationsAndOverlays];
+}
+
+- (void)testButtonOnClick3 {
+  _degrees += 10.0;
+  if (_degrees == 360.0) _degrees = 0.0;
+  self.mapView.degrees = _degrees;
 }
 
 - (void)removeAnnotationsAndOverlays {

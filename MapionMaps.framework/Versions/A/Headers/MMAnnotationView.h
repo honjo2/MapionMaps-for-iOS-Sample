@@ -22,7 +22,7 @@
 @property (nonatomic, copy) void (^tapOnPopup)(MMMapView *mapView);
 
 - (id)initWithMapView:(MMMapView *)mapView coordinate:(CLLocationCoordinate2D)coordinate;
-- (BOOL)onClick;
+- (void)onClick;
 - (void)onClose;
 - (void)reCalculate;
 - (void)setCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated;

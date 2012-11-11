@@ -15,6 +15,5 @@
 + (double)distance:(CLLocationCoordinate2D)coordinate1 loc2:(CLLocationCoordinate2D)coordinate2;
 + (CLLocationCoordinate2D)wgsToTky:(CLLocationCoordinate2D)coordinate;
 + (CLLocationCoordinate2D)tkyToWgs:(CLLocationCoordinate2D)coordinate;
-+ (BOOL)isUnder_iPhone4;
 
 @end

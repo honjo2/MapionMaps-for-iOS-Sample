@@ -39,11 +39,13 @@
 
 @property (nonatomic, assign) double metersPerPixel;
 @property (nonatomic, retain) id <MMMap> map;
+@property (nonatomic, readonly) NSArray *maps;
 @property (nonatomic, assign) float zoom;
-@property (nonatomic, assign) id <MMMapViewDelegate>delegate;
+@property (nonatomic, assign) id <MMMapViewDelegate> delegate;
 @property (nonatomic, assign) CLLocationCoordinate2D centerCoordinate;
 @property (nonatomic, assign) MMProjectedPoint centerProjectedPoint;
 @property (nonatomic, retain) MMAnnotationView *openAnnotation;
+@property (nonatomic, assign) float degrees;
 
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key;
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key map:(id <MMMap>)map;
@@ -74,6 +76,13 @@
 - (void)zoomTo:(float)zoomFactor point:(CGPoint)point;
 - (BOOL)containPoint:(CGPoint)point;
 
--(void)removeAllCache;
+- (void)removeAllCache;
+
+- (void)addMap:(id <MMMap>)map;
+- (void)addMap:(id <MMMap>)map atIndex:(NSUInteger)index;
+- (void)removeMap:(id <MMMap>)map;
+- (void)removeMapAtIndex:(NSUInteger)index;
+
+- (CGRect)scrollViewFrame;
 
 @end
