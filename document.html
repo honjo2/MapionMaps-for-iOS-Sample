@@ -293,6 +293,7 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 }
 </pre>
             <h5><a href="http://portal.cyberjapan.jp/portalsite/version/v4/">国土地理院の地図</a>を表示する場合</h5>
+            <h6>国土地理院の地図データを使用するには国土地理院の許諾が必要です（<a href="http://portal.cyberjapan.jp/portalsite/kiyaku/kyodaku.html">許諾を得るための申請要領等について</a>）</h6>
 <pre class="prettyprint">
 #import &lt;MapionMaps/MapionMaps.h&gt;
 
@@ -303,7 +304,7 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 @implementation GSIMap
 
 - (int)tileLength {
-  return 512; // 国土地理院のタイルのサイズは256なのでこうすると2倍表示
+  return 512; // 国土地理院のタイルのサイズは256なのでこうすると最大2倍表示
 }
 
 - (float)minZoom {
@@ -319,7 +320,7 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
 }
 
 - (NSString *)copyright {
-  return @"国土地理院";
+  return @"（国土地理院背景地図等データ利用許諾番号）20xx-xxx号"; // 国土地理院から付与される許諾番号を書く
 }
 
 - (NSURL *)URLForTile:(MMTile)tile {
