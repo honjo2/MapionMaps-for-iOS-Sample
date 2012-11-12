@@ -224,7 +224,7 @@ static NSString * const API_KEY = @"APIキー";
 - (void)testButtonOnClick3 {
   _degrees += 10.0;
   if (_degrees == 360.0) _degrees = 0.0;
-  self.mapView.degrees = _degrees;
+  [self.mapView setDegrees:_degrees animated:YES];
 }
 
 - (void)removeAnnotationsAndOverlays {

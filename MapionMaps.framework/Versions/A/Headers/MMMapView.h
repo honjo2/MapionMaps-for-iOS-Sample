@@ -85,4 +85,6 @@
 
 - (CGRect)scrollViewFrame;
 
+- (void)setDegrees:(float)degrees animated:(BOOL)animated;
+
 @end

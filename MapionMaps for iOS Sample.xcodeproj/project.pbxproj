@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB20D2A516506ADC00201CFD /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB20D2A416506ADC00201CFD /* MapionMaps.framework */; };
+		EB20D4921650C9C100201CFD /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB20D4911650C9C100201CFD /* MapionMaps.framework */; };
 		EB988853161564FA002C6015 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB988852161564FA002C6015 /* Default-568h@2x.png */; };
 		EB98885516156536002C6015 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98885416156536002C6015 /* libsqlite3.dylib */; };
 		EB98885916156B60002C6015 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = EB98885816156B60002C6015 /* loading.png */; };
@@ -65,7 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB20D2A416506ADC00201CFD /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
+		EB20D4911650C9C100201CFD /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 		EB988852161564FA002C6015 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EB98885416156536002C6015 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EB98885816156B60002C6015 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				EBB2284A15CA474F00160A3A /* UIKit.framework in Frameworks */,
 				EBB2284C15CA474F00160A3A /* Foundation.framework in Frameworks */,
 				EBB2284E15CA474F00160A3A /* CoreGraphics.framework in Frameworks */,
-				EB20D2A516506ADC00201CFD /* MapionMaps.framework in Frameworks */,
+				EB20D4921650C9C100201CFD /* MapionMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +151,7 @@
 		EBB2283A15CA474F00160A3A = {
 			isa = PBXGroup;
 			children = (
-				EB20D2A416506ADC00201CFD /* MapionMaps.framework */,
+				EB20D4911650C9C100201CFD /* MapionMaps.framework */,
 				EBC6EDEC16390B4200080301 /* CoreLocation.framework */,
 				EB98885416156536002C6015 /* libsqlite3.dylib */,
 				EB9F008E15D0A2B6009A01DA /* README.md */,
