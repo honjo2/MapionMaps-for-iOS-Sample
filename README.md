@@ -6,8 +6,7 @@
 
   1. 認証キーを取得しておく
   2. git clone
-  3. ViewController内のAPI_KEYを書き換える
-  4. 実行
+  3. 実行
 
 # 機能
 
