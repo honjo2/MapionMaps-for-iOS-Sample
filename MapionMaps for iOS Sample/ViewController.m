@@ -10,7 +10,8 @@
 #import "OpenStreetMap.h"
 #import "MapionTownMap.h"
 
-static NSString * const API_KEY = @"APIキー";
+// サンプル用のkey。将来的に使用不可になる可能性あり。
+static NSString * const API_KEY = @"a58512fce2b63b8c93b282f15ea77bed";
 
 @interface ViewController ()
 
@@ -27,7 +28,7 @@ static NSString * const API_KEY = @"APIキー";
   CLLocationCoordinate2D _tmpCenter;
   int _tmpZoom;
   MMShape *_shape;
-  NSUInteger _degrees;
+  CGFloat _rotation;
 }
 
 @synthesize mapView = mapView_;
@@ -54,9 +55,14 @@ static NSString * const API_KEY = @"APIキー";
   [self.view addSubview:self.mapView];
   
   _isFirstPath = YES;
-  _degrees = 0;
+  _rotation = 0;
   
   [self createTestButton];
+  
+  // recognizer
+  UIRotationGestureRecognizer* rotationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotationGesture:)];
+  [self.mapView addGestureRecognizer:rotationGesture];
+  [rotationGesture release];
 }
 
 - (void)viewDidUnload
@@ -182,18 +188,12 @@ static NSString * const API_KEY = @"APIキー";
   _button2.frame = CGRectMake(0, 35, _button2.frame.size.width, _button2.frame.size.height);
   [_button2 addTarget:self action:@selector(testButtonOnClick2) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:_button2];
-  
-  _button3 = [UIButton buttonWithType:100];
-  [_button3 setTitle:[NSString stringWithUTF8String:"回転+"] forState:UIControlStateNormal];
-  _button3.frame = CGRectMake(0, 70, _button3.frame.size.width, _button3.frame.size.height);
-  [_button3 addTarget:self action:@selector(testButtonOnClick3) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:_button3];
 }
 
 - (void)testButtonOnClick {
   [self removeAnnotationsAndOverlays];
   
-  _degrees = 0;
+  _rotation = 0;
   
   if ([mapView_.map isKindOfClass:[MMMapionMap class]]) {
     mapView_.map = _openStreetMap;
@@ -221,16 +221,22 @@ static NSString * const API_KEY = @"APIキー";
   [self removeAnnotationsAndOverlays];
 }
 
-- (void)testButtonOnClick3 {
-  _degrees += 10.0;
-  if (_degrees == 360.0) _degrees = 0.0;
-  [self.mapView setDegrees:_degrees animated:YES];
-}
-
 - (void)removeAnnotationsAndOverlays {
   [self.mapView removeAnnotations:self.mapView.annotations];
   [self.mapView removeOverlays:self.mapView.overlays];
   _isFirstPath = YES;
+}
+
+#pragma mark - GestureRecognizer
+
+- (void) handleRotationGesture:(UIRotationGestureRecognizer*) recognizer {
+  UIRotationGestureRecognizer *rotation = (UIRotationGestureRecognizer *) recognizer;
+  
+  [self.mapView setRotation:_rotation+rotation.rotation animated:YES];
+  
+  if (recognizer.state == UIGestureRecognizerStateEnded) {
+    _rotation = self.mapView.rotation;
+  }
 }
 
 @end

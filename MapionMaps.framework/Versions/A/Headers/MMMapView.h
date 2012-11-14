@@ -46,6 +46,7 @@
 @property (nonatomic, assign) MMProjectedPoint centerProjectedPoint;
 @property (nonatomic, retain) MMAnnotationView *openAnnotation;
 @property (nonatomic, assign) float degrees;
+@property (nonatomic, assign) float rotation;
 
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key;
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key map:(id <MMMap>)map;
@@ -85,6 +86,7 @@
 
 - (CGRect)scrollViewFrame;
 
-- (void)setDegrees:(float)degrees animated:(BOOL)animated;
+- (void)setDegrees:(CGFloat)degrees animated:(BOOL)animated;
+- (void)setRotation:(CGFloat)rotation animated:(BOOL)animated;
 
 @end
