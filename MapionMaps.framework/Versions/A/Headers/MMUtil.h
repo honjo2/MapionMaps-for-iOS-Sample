@@ -15,5 +15,7 @@
 + (double)distance:(CLLocationCoordinate2D)coordinate1 loc2:(CLLocationCoordinate2D)coordinate2;
 + (CLLocationCoordinate2D)wgsToTky:(CLLocationCoordinate2D)coordinate;
 + (CLLocationCoordinate2D)tkyToWgs:(CLLocationCoordinate2D)coordinate;
++ (CGPoint)affine:(CGPoint)point degrees:(float)degrees;
++ (CGPoint)affine:(CGPoint)point degrees:(float)degrees inView:(UIView *)view;
 
 @end

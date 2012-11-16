@@ -30,7 +30,7 @@
   self.projectedRect = MMProjectedRectMake(-maxLength, -maxLength, maxLength * 2, maxLength * 2);
   
   self.tileLength = 256;
-  self.maxZoom = 2;
+  self.maxZoom = 3;
   self.minZoom = 0;
   
   self.name = @"MapionTown";

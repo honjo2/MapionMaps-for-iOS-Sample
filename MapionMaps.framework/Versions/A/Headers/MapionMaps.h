@@ -10,6 +10,7 @@
 #import <MapionMaps/MMAbstractEPSG900913Map.h>
 #import <MapionMaps/MMFoundation.h>
 #import <MapionMaps/MMMapionMap.h>
+#import <MapionMaps/MMMapionMap2.h>
 #import <MapionMaps/MMMapView.h>
 #import <MapionMaps/MMMap.h>
 #import <MapionMaps/MMUtil.h>

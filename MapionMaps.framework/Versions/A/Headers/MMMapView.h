@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MMMap.h"
 
+#define kLongBeach CLLocationCoordinate2DMake(35.301667, 139.283333)
+
 @class MMMapView;
 @class MMAnnotationView;
 @class MMOverlay;
