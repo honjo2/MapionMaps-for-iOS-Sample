@@ -92,7 +92,7 @@
 		EB21A20516560D5100936D25 /* tttr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB21A1B016560D5100936D25 /* tttr.jpg */; };
 		EB21A20616560D5100936D25 /* ttts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB21A1B116560D5100936D25 /* ttts.jpg */; };
 		EB21A20716560D5100936D25 /* tttt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB21A1B216560D5100936D25 /* tttt.jpg */; };
-		EB21A20916560E4F00936D25 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB21A20816560E4F00936D25 /* MapionMaps.framework */; };
+		EB699907165DEA2200FB0B57 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB699906165DEA2200FB0B57 /* MapionMaps.framework */; };
 		EB988853161564FA002C6015 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB988852161564FA002C6015 /* Default-568h@2x.png */; };
 		EB98885516156536002C6015 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98885416156536002C6015 /* libsqlite3.dylib */; };
 		EB98885916156B60002C6015 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = EB98885816156B60002C6015 /* loading.png */; };
@@ -214,7 +214,7 @@
 		EB21A1B016560D5100936D25 /* tttr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tttr.jpg; sourceTree = "<group>"; };
 		EB21A1B116560D5100936D25 /* ttts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ttts.jpg; sourceTree = "<group>"; };
 		EB21A1B216560D5100936D25 /* tttt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tttt.jpg; sourceTree = "<group>"; };
-		EB21A20816560E4F00936D25 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
+		EB699906165DEA2200FB0B57 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 		EB988852161564FA002C6015 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EB98885416156536002C6015 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EB98885816156B60002C6015 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 				EBB2284A15CA474F00160A3A /* UIKit.framework in Frameworks */,
 				EBB2284C15CA474F00160A3A /* Foundation.framework in Frameworks */,
 				EBB2284E15CA474F00160A3A /* CoreGraphics.framework in Frameworks */,
-				EB21A20916560E4F00936D25 /* MapionMaps.framework in Frameworks */,
+				EB699907165DEA2200FB0B57 /* MapionMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +279,7 @@
 		EBB2283A15CA474F00160A3A = {
 			isa = PBXGroup;
 			children = (
-				EB21A20816560E4F00936D25 /* MapionMaps.framework */,
+				EB699906165DEA2200FB0B57 /* MapionMaps.framework */,
 				EBC6EDEC16390B4200080301 /* CoreLocation.framework */,
 				EB98885416156536002C6015 /* libsqlite3.dylib */,
 				EB9F008E15D0A2B6009A01DA /* README.md */,

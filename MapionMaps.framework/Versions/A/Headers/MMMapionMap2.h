@@ -2,8 +2,8 @@
 //  MMMapionMap2.h
 //  MapionMaps
 //
-//  Created by honjyo on 12/11/15.
-//  Copyright (c) 2012年 Mapion Co.,Ltd. All rights reserved.
+//  Created by honjo on 12/11/15.
+//  Copyright (c) 2012 Mapion Co.,Ltd. All rights reserved.
 //
 
 #import <MapionMaps/MapionMaps.h>

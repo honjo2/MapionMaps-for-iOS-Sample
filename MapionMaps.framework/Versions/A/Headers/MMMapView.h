@@ -15,6 +15,13 @@
 @class MMAnnotationView;
 @class MMOverlay;
 
+enum {
+  MMFrameworkTypeMapion = 0,
+  MMFrameworkTypeFree,
+  MMFrameworkTypeASP
+};
+typedef NSUInteger MMFrameworkType;
+
 @protocol MMMapViewDelegate <NSObject>
 
 @optional
@@ -50,6 +57,8 @@
 @property (nonatomic, assign) float degrees;
 @property (nonatomic, assign) float rotation;
 
++ (MMFrameworkType)frameworkType;
+
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key;
 - (id)initWithFrame:(CGRect)frame key:(NSString *)key map:(id <MMMap>)map;
 
@@ -76,7 +85,14 @@
 - (void)removeOverlay:(MMOverlay *)overlay;
 - (void)removeOverlays:(NSArray *)overlays;
 
+// zoomFactor=2でズームイン,zoomFactor=0.5でズームアウト,pointは中心点
 - (void)zoomTo:(float)zoomFactor point:(CGPoint)point;
+- (void)zoomTo:(float)zoomFactor point:(CGPoint)point animated:(BOOL)animated;
+- (void)zoomIn:(CGPoint)point;
+- (void)zoomIn:(CGPoint)point animated:(BOOL)animated;
+- (void)zoomOut:(CGPoint)point;
+- (void)zoomOut:(CGPoint)point animated:(BOOL)animated;
+
 - (BOOL)containPoint:(CGPoint)point;
 
 - (void)removeAllCache;

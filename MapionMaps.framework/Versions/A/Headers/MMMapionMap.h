@@ -12,4 +12,6 @@
 
 @interface MMMapionMap : MMAbstractEPSG900913Map
 
+- (id)initWithTileLength:(int)tileLength;
+
 @end

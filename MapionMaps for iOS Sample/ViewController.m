@@ -58,11 +58,6 @@ static NSString * const API_KEY = @"a58512fce2b63b8c93b282f15ea77bed";
   _rotation = 0;
   
   [self createTestButton];
-  
-  // recognizer
-  UIRotationGestureRecognizer* rotationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotationGesture:)];
-  [self.mapView addGestureRecognizer:rotationGesture];
-  [rotationGesture release];
 }
 
 - (void)viewDidUnload
@@ -225,18 +220,6 @@ static NSString * const API_KEY = @"a58512fce2b63b8c93b282f15ea77bed";
   [self.mapView removeAnnotations:self.mapView.annotations];
   [self.mapView removeOverlays:self.mapView.overlays];
   _isFirstPath = YES;
-}
-
-#pragma mark - GestureRecognizer
-
-- (void) handleRotationGesture:(UIRotationGestureRecognizer*) recognizer {
-  UIRotationGestureRecognizer *rotation = (UIRotationGestureRecognizer *) recognizer;
-  
-  [self.mapView setRotation:_rotation+rotation.rotation animated:YES];
-  
-  if (recognizer.state == UIGestureRecognizerStateEnded) {
-    _rotation = self.mapView.rotation;
-  }
 }
 
 @end
