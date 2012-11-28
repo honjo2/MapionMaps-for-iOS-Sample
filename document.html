@@ -547,10 +547,12 @@ CGPoint point = [mapView coordinateToPixel:coordinate];
             
             <h3><a name="circle"></a>サークルを描画する</h3>
 <pre class="prettyprint">
-MMCircle *circle = [[MMCircle alloc] initWithMapView:mapView center:mapView.centerCoordinate r:10000]; // rは半径（m）
+MMCircle *circle = [[MMCircle alloc] initWithMapView:mapView centerCoordinate:mapView.centerCoordinate r:10000]; // rは半径（m）
 circle.fillColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.8];
 [mapView addOverlay:circle];
 
+// [circle setCenterCoordinate:CLLocationCoordinate2DMake(35.3, 139.3) animated:YES]; // 中心位置を変更する場合
+// [circle setR:12000 animated:YES]; // 半径を変更する場合
 // [mapView removeOverlay:circle]; // 削除
 </pre>         
             <img src="img/circle.png" width="360" height="640">
