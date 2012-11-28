@@ -56,6 +56,7 @@ typedef NSUInteger MMFrameworkType;
 @property (nonatomic, retain) MMAnnotationView *openAnnotation;
 @property (nonatomic, assign) float degrees;
 @property (nonatomic, assign) float rotation;
+@property (nonatomic, assign) float stretchLength;
 
 + (MMFrameworkType)frameworkType;
 

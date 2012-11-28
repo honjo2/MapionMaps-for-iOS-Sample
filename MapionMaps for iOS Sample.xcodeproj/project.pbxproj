@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB1F8A341664878E0075E922 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1F8A331664878E0075E922 /* MapionMaps.framework */; };
+		EB1F8A3D1665CEF40075E922 /* MapionMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1F8A3C1665CEF40075E922 /* MapionMaps.framework */; };
 		EB21A1B316560D5100936D25 /* t.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB21A15E16560D5100936D25 /* t.jpg */; };
 		EB21A1B416560D5100936D25 /* tq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB21A15F16560D5100936D25 /* tq.jpg */; };
 		EB21A1B516560D5100936D25 /* tqq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB21A16016560D5100936D25 /* tqq.jpg */; };
@@ -129,7 +129,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB1F8A331664878E0075E922 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
+		EB1F8A3C1665CEF40075E922 /* MapionMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapionMaps.framework; sourceTree = "<group>"; };
 		EB21A15E16560D5100936D25 /* t.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = t.jpg; sourceTree = "<group>"; };
 		EB21A15F16560D5100936D25 /* tq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tq.jpg; sourceTree = "<group>"; };
 		EB21A16016560D5100936D25 /* tqq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tqq.jpg; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 				EBB2284A15CA474F00160A3A /* UIKit.framework in Frameworks */,
 				EBB2284C15CA474F00160A3A /* Foundation.framework in Frameworks */,
 				EBB2284E15CA474F00160A3A /* CoreGraphics.framework in Frameworks */,
-				EB1F8A341664878E0075E922 /* MapionMaps.framework in Frameworks */,
+				EB1F8A3D1665CEF40075E922 /* MapionMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +279,7 @@
 		EBB2283A15CA474F00160A3A = {
 			isa = PBXGroup;
 			children = (
-				EB1F8A331664878E0075E922 /* MapionMaps.framework */,
+				EB1F8A3C1665CEF40075E922 /* MapionMaps.framework */,
 				EBC6EDEC16390B4200080301 /* CoreLocation.framework */,
 				EB98885416156536002C6015 /* libsqlite3.dylib */,
 				EB9F008E15D0A2B6009A01DA /* README.md */,

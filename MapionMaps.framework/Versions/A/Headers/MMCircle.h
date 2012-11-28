@@ -17,11 +17,14 @@
 
 @property (nonatomic, assign) MMProjectedPoint projectedLocation;
 @property (nonatomic, retain) CAShapeLayer *shapeLayer;
+@property (nonatomic, assign) CLLocationCoordinate2D centerCoordinate;
 @property (nonatomic, retain) UIColor *lineColor;
 @property (nonatomic, retain) UIColor *fillColor;
-@property (nonatomic, assign) CGFloat radiusInMeters;
-@property (nonatomic, assign) CGFloat lineWidthInPixels;
+@property (nonatomic, assign) CGFloat r;
+@property (nonatomic, assign) CGFloat lineWidth;
 
-- (id)initWithMapView:(MMMapView *)mapView center:(CLLocationCoordinate2D)center r:(CGFloat)r;
+- (id)initWithMapView:(MMMapView *)mapView centerCoordinate:(CLLocationCoordinate2D)centerCoordinate r:(CGFloat)r;
+- (void)setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate animated:(BOOL)animated;
+- (void)setR:(CGFloat)r animated:(BOOL)animated;
 
 @end
