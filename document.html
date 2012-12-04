@@ -74,6 +74,7 @@
               <li><a href="document.html#polygon">ポリゴンを描画する</a></li>
               <li><a href="document.html#layer">レイヤを追加する</a></li>
               <li><a href="document.html#rotate">回転する</a></li>
+              <li><a href="document.html#panorama">パノラマを設定する</a></li>
             </ul>
             <h4><a href="apikey.html">APIキー</a></h4>
             <h4><a href="download.html">ダウンロード</a></h4>
@@ -677,6 +678,16 @@ mapView.degrees = 310.0; // 310度回転する
 </pre>         
             <h4>回転してもピンは常に上を向く</h4>
             <img src="img/rotate.png" width="360" height="639">
+            
+            <hr />
+            
+            <h3><a name="panorama"></a>パノラマを設定する</h3>
+            <h4><font color="red">法人向けのみの機能です</font></h4>
+<pre class="prettyprint">
+[mapView setPanorama:45.0f animated:YES]; // 0 ... 45
+</pre>
+            <h4>パノラマを設定すると余白が生まれるのでframeを広めに設定している</h4>
+            <img src="img/panorama.png" width="360" height="639">
             
           </div>
         </div>
